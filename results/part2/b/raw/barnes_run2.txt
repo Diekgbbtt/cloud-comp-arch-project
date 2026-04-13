@@ -1,0 +1,36 @@
+Launching splash2x.barnes...
+[PARSEC] Benchmarks to run:  splash2x.barnes
+
+[PARSEC] [========== Running benchmark splash2x.barnes [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'native'.
+input.template
+[PARSEC] Running 'time /parsec/ext/splash2x/apps/barnes/inst/amd64-linux.gcc/bin/run.sh 2 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file input_2...
+Running /parsec/ext/splash2x/apps/barnes/inst/amd64-linux.gcc/bin/barnes 2 < input_2:
+
+                Hack code: Plummer model
+
+     nbody     dtime       eps       tol     dtout     tstop    fcells     NPROC
+   4194304   0.02500    0.0500      1.00     0.250     0.075      2.00         2
+
+COMPUTESTART  = 1776068582063996
+COMPUTEEND    = 1776068635257473
+COMPUTETIME   =     53193477
+TRACKTIME     =     26087804
+PARTITIONTIME =       172921     0.01
+TREEBUILDTIME =      1239278     0.05
+FORCECALCTIME =     24467173     0.94
+RESTTIME      =       208432     0.01
+
+real    0m53.990s
+user    1m46.081s
+sys     0m0.674s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.

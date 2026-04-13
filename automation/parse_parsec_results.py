@@ -28,7 +28,8 @@ def parse_time(time_str):
 
 def parse_parsec_output(filepath):
     """Extract metrics from a single PARSEC output file."""
-    text = Path(filepath).read_text()
+    path = Path(filepath)
+    text = path.read_text()
 
     result = {"file": Path(filepath).name}
 
@@ -40,18 +41,46 @@ def parse_parsec_output(filepath):
         result["suite"] = parts[0] if len(parts) == 2 else ""
         result["benchmark"] = parts[1] if len(parts) == 2 else parts[0]
 
-    # Input size: "Unpacking benchmark input 'native'"
-    m = re.search(r"Unpacking benchmark input '(\w+)'", text)
+    # Input size: either unpacked explicitly or mentioned in "No archive" logs.
+    m = re.search(r"(?:Unpacking benchmark input|No archive for input) '(\w+)'", text)
     if m:
         result["input_size"] = m.group(1)
 
-    # Thread count from the run command line
-    m = re.search(r"Running '.*?(\d+)\s+(?:native|simlarge|simmedium|simsmall|simdev|test)'", text)
-    if m:
-        result["threads"] = int(m.group(1))
-    else:
+    # Thread count from the run command line. Different PARSEC apps place the
+    # thread count in different positions, so handle the common shapes we see
+    # in this project.
+    m = re.search(r"^\[PARSEC\] Running 'time ([^']+)'", text, re.MULTILINE)
+    command = m.group(1) if m else ""
+    if command:
+        # SPLASH2x wrappers like: run.sh 4 native
+        m = re.search(r"\b(\d+)\s+(?:native|simlarge|simmedium|simsmall|simdev|test)\s*$", command)
+        if m:
+            result["threads"] = int(m.group(1))
+        elif result.get("benchmark") in {"blackscholes", "canneal"}:
+            # These apps pass thread count as the first integer argument.
+            m = re.search(r"\S+\s+(\d+)(?:\s|$)", command)
+            if m:
+                result["threads"] = int(m.group(1))
+        elif result.get("benchmark") == "streamcluster":
+            # streamcluster puts threads at the end of the command.
+            m = re.search(r"\s(\d+)\s*$", command)
+            if m:
+                result["threads"] = int(m.group(1))
+
+    if "threads" not in result:
         # fallback: look for "-n X" in the run command or the internal "NPROC" field
-        m = re.search(r"NPROC\s+(\d+)", text)
+        m = re.search(r"-n\s+(\d+)", command)
+        if m:
+            result["threads"] = int(m.group(1))
+        else:
+            m = re.search(r"NPROC\s+(\d+)", text)
+            if m:
+                result["threads"] = int(m.group(1))
+
+    # Part 2b filenames are of the form benchmark_run<threads>.txt, and some
+    # PARSEC apps do not echo thread count in a parseable way in the logs.
+    if "threads" not in result and "results/part2/b/raw" in str(path):
+        m = re.match(r".+_run(\d+)\.txt$", path.name)
         if m:
             result["threads"] = int(m.group(1))
 
