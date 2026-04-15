@@ -14,8 +14,7 @@ ANY TIME YOU MAKE A CHANGE CHECK IF IT CONSTRADICTS OR IT IS MISSING IN THE proj
 ## PART 3 CORE TASK
 
 Your goal is to design a scheduling policy that will minimize the time it takes for all seven batch
-workloads to complete (their makespan), while guaranteeing a tail latency service level objective
-(SLO) for the long-running memcached service. It might be helpful to take into account the characteristics of the batch applications you noted in Part 2 of the project(e.g. speedup across cores, total
+workloads to complete (their makespan), while guaranteeing a tail(95th percentile) latency SLO(< 1 ms) for the long-running memcached service. It might be helpful to take into account the characteristics of the batch applications you noted in Part 2 of the project(e.g. speedup across cores, total
 runtime, etc.). For this part of the project, the memcached service will receive requests from the
 client at a steady rate, and you will measure the request tail latency. Your scheduling policy should
 minimize the makespan of all batch applications, without violating a strict service level objective for memcached of 1 ms 95th percentile latency at 30K QPS. You also must ensure that
