@@ -49,9 +49,6 @@ from scheduler_logger import SchedulerLogger, Job
 
 YAML_DIR = Path(__file__).resolve().parent
 
-MEMCACHED_YAML = "part3-memcached.yaml"
-MEMCACHED_POD  = "some-memcached"
-
 # Wave 0: all launched at t=0
 # (yaml_file, job_name, Job enum, cores, threads)
 WAVE_0 = [
@@ -100,7 +97,6 @@ def cleanup_all():
     print(f"[{ts()}] Cleaning up all resources...", file=sys.stderr)
     for job_name in ALL_JOBS:
         kubectl_delete_job(job_name)
-    kubectl_delete_pod(MEMCACHED_POD)
     time.sleep(5)
 
 
@@ -121,19 +117,18 @@ def run_schedule(yaml_dir, run_number, results_dir):
     print(f"  PART 3 — RUN {run_number}  (log: {logger.get_file_name()})", file=sys.stderr)
     print(f"{'='*60}", file=sys.stderr)
 
-    # ── 1. Deploy memcached ──────────────────────────────────────────
-    print(f"[{ts()}] Deploying memcached (Node B, core 0)...", file=sys.stderr)
-    if not kubectl_create(str(yaml_dir / MEMCACHED_YAML)):
-        logger.end()
-        return None
-    if not kubectl_wait_pod(MEMCACHED_POD, timeout=120):
-        logger.end()
-        cleanup_all()
-        return None
-    logger.job_start(Job.MEMCACHED, [0], 1)
-    print(f"[{ts()}] Memcached ready. Warming up (10s)...", file=sys.stderr)
-    time.sleep(10)
+    # memcached considered alredy runing due to dependencies of newly configured of mcpperf on agents
+    # TODO this couldbe automated as well
 
+    """
+    run with this cmd to get the output piped to cmdline curently
+    ssh -i ~/.ssh/id_rsa ubuntu@34.14.87.124 \                                                                                                                                               
+    "cd memcache-perf-dynamic && ./mcperf -s 100.96.1.4 \                                                                                                                            
+     -a 10.0.16.8 -a 10.0.16.6 \                                                                                                                                                           
+     --noload -T 6 -C 4 -D 4 -Q 1000 -c 4 -t 10 \                                                                                                                                          
+     --scan 30000:30500:5"
+    """
+    
     # ── 2. Launch wave 0 ─────────────────────────────────────────────
     t0 = time.time()
     print(f"\n[{ts()}] === WAVE 0 ===", file=sys.stderr)
@@ -156,7 +151,7 @@ def run_schedule(yaml_dir, run_number, results_dir):
 
     while len(completed) < len(ALL_JOBS):
         for job_name in list(launched - completed):
-            status = kubectl_wait_job(job_name, timeout=5)
+            status = kubectl_wait_job(job_name, timeout=5) ## TODO is such a low timeout a good design choice, would be better equal to the longest expected job
 
             if status == "Complete":
                 elapsed = time.time() - t0
@@ -251,6 +246,8 @@ def run_all(yaml_dir, num_runs, results_dir, dry_run=False):
         if result:
             all_results.append(result)
 
+###### TODO weak implementation : should be programmed to be run as ascript that execute the bench once and therefore provide analysis of just one run
+
         if run < num_runs:
             print(f"  Pause before next run (15s)...", file=sys.stderr)
             time.sleep(15)
@@ -258,6 +255,7 @@ def run_all(yaml_dir, num_runs, results_dir, dry_run=False):
     # ── Summary across runs ──
     if all_results:
         makespans = [r["makespan"] for r in all_results]
+        ## maths here are calculated on wrong numbers
         avg = sum(makespans) / len(makespans)
         std = (sum((m - avg) ** 2 for m in makespans) / len(makespans)) ** 0.5
 

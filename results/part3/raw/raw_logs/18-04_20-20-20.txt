@@ -1,0 +1,207 @@
+############################################################
+  Part 3 Scheduling Automation (Strategy B)
+  Runs: 1   YAMLs: parsec-benchmarks/part3/no_taskset
+############################################################
+
+[20:15:42] Cleaning up all resources...
+  [kubectl] kubectl delete job/parsec-streamcluster --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-freqmine --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-canneal --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-blackscholes --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-radix --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-barnes --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-vips --ignore-not-found=true
+
+============================================================
+  PART 3 — RUN 1  (log: log20260418_201554.txt)
+============================================================
+
+[20:15:54] === WAVE 0 ===
+[20:15:54]   → parsec-streamcluster (cores=[0, 1, 2, 3], 4T)
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-streamcluster.yaml
+  [kubectl] job.batch/parsec-streamcluster created
+[20:15:56]   → parsec-freqmine (cores=[4, 5, 6, 7], 4T)
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-freqmine.yaml
+  [kubectl] job.batch/parsec-freqmine created
+[20:15:58]   → parsec-canneal (cores=[1, 2], 2T)
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-canneal.yaml
+  [kubectl] job.batch/parsec-canneal created
+[20:15:59]   → parsec-blackscholes (cores=[3], 1T)
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-blackscholes.yaml
+  [kubectl] job.batch/parsec-blackscholes created
+
+[20:16:00] === Monitoring jobs ===
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+  [kubectl] kubectl get job/parsec-canneal -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+  [kubectl] kubectl get job/parsec-canneal -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+  [kubectl] kubectl get job/parsec-canneal -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+  [kubectl] kubectl get job/parsec-canneal -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+  [kubectl] kubectl get job/parsec-canneal -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+  [kubectl] kubectl get job/parsec-canneal -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+  [kubectl] kubectl get job/parsec-streamcluster -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-canneal --timeout=5s
+[20:18:38] ✓ parsec-canneal complete (wall 164s)
+  [kubectl] kubectl logs job/parsec-canneal
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-streamcluster --timeout=5s
+[20:18:47] ✓ parsec-streamcluster complete (wall 173s)
+  [kubectl] kubectl logs job/parsec-streamcluster
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+  [kubectl] kubectl get job/parsec-blackscholes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-blackscholes --timeout=5s
+[20:20:01] ✓ parsec-blackscholes complete (wall 247s)
+  [kubectl] kubectl logs job/parsec-blackscholes
+[20:20:02]   → chain: launching parsec-radix
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-radix.yaml
+  [kubectl] job.batch/parsec-radix created
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-radix --timeout=5s
+  [kubectl] kubectl get job/parsec-radix -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-radix --timeout=5s
+  [kubectl] kubectl get job/parsec-radix -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-radix --timeout=5s
+  [kubectl] kubectl get job/parsec-radix -o jsonpath={.status.failed}
+[20:20:44] ✗ parsec-radix FAILED
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+  [kubectl] kubectl get job/parsec-freqmine -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-freqmine --timeout=5s
+[20:21:05] ✓ parsec-freqmine complete (wall 310s)
+  [kubectl] kubectl logs job/parsec-freqmine
+[20:21:05]   → chain: launching parsec-barnes
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-barnes.yaml
+  [kubectl] job.batch/parsec-barnes created
+  [kubectl] kubectl wait --for=condition=complete job/parsec-barnes --timeout=5s
+  [kubectl] kubectl get job/parsec-barnes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-barnes --timeout=5s
+  [kubectl] kubectl get job/parsec-barnes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-barnes --timeout=5s
+  [kubectl] kubectl get job/parsec-barnes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-barnes --timeout=5s
+  [kubectl] kubectl get job/parsec-barnes -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-barnes --timeout=5s
+[20:21:46] ✓ parsec-barnes complete (wall 352s)
+  [kubectl] kubectl logs job/parsec-barnes
+[20:21:46]   → chain: launching parsec-vips
+  [kubectl] kubectl create -f parsec-benchmarks/part3/no_taskset/part3-parsec-vips.yaml
+  [kubectl] job.batch/parsec-vips created
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+  [kubectl] kubectl get job/parsec-vips -o jsonpath={.status.failed}
+  [kubectl] kubectl wait --for=condition=complete job/parsec-vips --timeout=5s
+[20:23:15] ✓ parsec-vips complete (wall 440s)
+  [kubectl] kubectl logs job/parsec-vips
+
+────────────────────────────────────────────────────────────
+  RUN 1 RESULTS
+────────────────────────────────────────────────────────────
+  streamcluster         real =    162.9s
+  freqmine              real =    129.3s
+  canneal               real =    138.0s
+  blackscholes          real =     80.7s
+  radix                 real =        —s
+  barnes                real =     35.2s
+  vips                  real =     28.2s
+  MAKESPAN                   =   440.6s
+────────────────────────────────────────────────────────────
+
+[20:23:15] Cleaning up all resources...
+  [kubectl] kubectl delete job/parsec-streamcluster --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-freqmine --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-canneal --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-blackscholes --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-radix --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-barnes --ignore-not-found=true
+  [kubectl] kubectl delete job/parsec-vips --ignore-not-found=true
+
+############################################################
+  FINAL (1 runs)
+  Makespan: mean=440.6s  std=0.0s
+    Run 1: 440.6s
+############################################################
