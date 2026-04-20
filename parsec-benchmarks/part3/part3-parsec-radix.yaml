@@ -10,9 +10,16 @@ spec:
       containers:
       - image: anakli/cca:splash2x_radix
         name: parsec-radix
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "taskset -c 3 ./run -a run -S splash2x -p radix -i native -n 1"]
+        resources:
+          requests:
+            cpu: "1"
+            memory: "512Mi"
+          limits:
+            cpu: "2"
+            memory: "2Gi"
       restartPolicy: Never
       nodeSelector:
         cca-project-nodetype: "node-b-4core"

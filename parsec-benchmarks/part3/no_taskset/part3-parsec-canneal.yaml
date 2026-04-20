@@ -10,12 +10,12 @@ spec:
       containers:
       - image: anakli/cca:parsec_canneal
         name: parsec-canneal
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "./run -a run -S parsec -p canneal -i native -n 2"]
         resources:
           requests:
-            cpu: "2"
+            cpu: "1"
             memory: "1Gi"
           limits:
             cpu: "2"

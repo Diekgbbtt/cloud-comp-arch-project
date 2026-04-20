@@ -10,9 +10,16 @@ spec:
       containers:
       - image: anakli/cca:parsec_blackscholes
         name: parsec-blackscholes
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "taskset -c 3 ./run -a run -S parsec -p blackscholes -i native -n 1"]
+        resources:
+          requests:
+            cpu: "1"
+            memory: "512Mi"
+          limits:
+            cpu: "2"
+            memory: "2Gi"
       restartPolicy: Never
       nodeSelector:
         cca-project-nodetype: "node-b-4core"

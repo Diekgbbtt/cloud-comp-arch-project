@@ -8,7 +8,7 @@ spec:
   containers:
     - image: anakli/memcached:t1
       name: memcached
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
       command: ["/bin/sh"]
       args: ["-c", "taskset -c 0 ./memcached -t 1 -u memcache"]
       resources:
@@ -20,3 +20,4 @@ spec:
           memory: "1Gi"
   nodeSelector:
     cca-project-nodetype: "node-b-4core"
+python3 run_part3.py --yaml-dir ../parsec-benchmarks/part3/ --dry-run --runs=1

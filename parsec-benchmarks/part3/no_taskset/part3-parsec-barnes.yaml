@@ -10,12 +10,12 @@ spec:
       containers:
       - image: anakli/cca:splash2x_barnes
         name: parsec-barnes
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "./run -a run -S splash2x -p barnes -i native -n 4"]
         resources:
           requests:
-            cpu: "1"
+            cpu: "3"
             memory: "512Mi"
           limits:
             cpu: "4"

@@ -10,7 +10,7 @@ spec:
       containers:
       - image: anakli/cca:parsec_blackscholes
         name: parsec-blackscholes
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "./run -a run -S parsec -p blackscholes -i native -n 1"]
         resources:
@@ -18,7 +18,7 @@ spec:
             cpu: "1"
             memory: "512Mi"
           limits:
-            cpu: "1"
+            cpu: "2"
             memory: "2Gi"
       restartPolicy: Never
       nodeSelector:

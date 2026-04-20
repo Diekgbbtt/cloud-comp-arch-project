@@ -10,7 +10,7 @@ spec:
       containers:
       - image: anakli/cca:parsec_streamcluster
         name: parsec-streamcluster
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "./run -a run -S parsec -p streamcluster -i native -n 4"]
         resources:

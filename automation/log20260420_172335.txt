@@ -1,0 +1,64 @@
+2026-04-20T17:23:35.446283 start scheduler
+2026-04-20T17:23:36.389039 custom streamcluster phase%3Djob_created+epoch%3D1776698616.388865+actual_name%3Dparsec-streamcluster-0420172335-r1
+2026-04-20T17:23:36.389202 start streamcluster [0,1,2,3] 4
+2026-04-20T17:23:38.163340 custom freqmine phase%3Djob_created+epoch%3D1776698618.163203+actual_name%3Dparsec-freqmine-0420172335-r1
+2026-04-20T17:23:38.163735 start freqmine [4,5,6,7] 4
+2026-04-20T17:23:39.353582 custom canneal phase%3Djob_created+epoch%3D1776698619.353470+actual_name%3Dparsec-canneal-0420172335-r1
+2026-04-20T17:23:39.353671 start canneal [1,2] 2
+2026-04-20T17:23:40.526689 custom blackscholes phase%3Djob_created+epoch%3D1776698620.526604+actual_name%3Dparsec-blackscholes-0420172335-r1
+2026-04-20T17:23:40.526773 start blackscholes [3] 1
+2026-04-20T17:23:41.723278 custom streamcluster pod_name%3Dparsec-streamcluster-0420172335-r1-xq7nm
+2026-04-20T17:23:41.723462 custom streamcluster phase%3Dpod_scheduled+epoch%3D1776698616.000000
+2026-04-20T17:23:41.723491 custom streamcluster phase%3Dcontainer_started+epoch%3D1776698617.000000
+2026-04-20T17:23:41.871919 custom streamcluster phase%3Dbenchmark_start+epoch%3D1776698617.179330
+2026-04-20T17:23:42.081909 custom freqmine pod_name%3Dparsec-freqmine-0420172335-r1-n2zbt
+2026-04-20T17:23:42.082267 custom freqmine phase%3Dpod_scheduled+epoch%3D1776698618.000000
+2026-04-20T17:23:42.082344 custom freqmine phase%3Dcontainer_started+epoch%3D1776698618.000000
+2026-04-20T17:23:42.228317 custom freqmine phase%3Dbenchmark_start+epoch%3D1776698618.896220
+2026-04-20T17:23:42.450635 custom canneal pod_name%3Dparsec-canneal-0420172335-r1-bfwqj
+2026-04-20T17:23:42.450745 custom canneal phase%3Dpod_scheduled+epoch%3D1776698619.000000
+2026-04-20T17:23:42.450762 custom canneal phase%3Dcontainer_started+epoch%3D1776698620.000000
+2026-04-20T17:23:42.617312 custom canneal phase%3Dbenchmark_start+epoch%3D1776698620.144787
+2026-04-20T17:23:42.837083 custom blackscholes pod_name%3Dparsec-blackscholes-0420172335-r1-r6xtj
+2026-04-20T17:25:58.841081 custom canneal phase%3Dpod_end+epoch%3D1776698754.000000
+2026-04-20T17:25:59.072184 custom canneal phase%3Dbenchmark_end+epoch%3D1776698754.427754
+2026-04-20T17:25:59.879223 end canneal
+2026-04-20T17:26:00.089588 custom blackscholes phase%3Dpod_scheduled+epoch%3D1776698756.000000
+2026-04-20T17:26:00.089681 custom blackscholes phase%3Dcontainer_started+epoch%3D1776698756.000000
+2026-04-20T17:26:00.222506 custom blackscholes phase%3Dbenchmark_start+epoch%3D1776698756.742579
+2026-04-20T17:26:43.114051 custom freqmine phase%3Dbenchmark_end+epoch%3D1776698802.378033
+2026-04-20T17:26:47.093778 custom freqmine phase%3Dpod_end+epoch%3D1776698802.000000
+2026-04-20T17:26:48.007989 end freqmine
+2026-04-20T17:26:48.175255 custom barnes phase%3Djob_created+epoch%3D1776698808.175194+actual_name%3Dparsec-barnes-0420172335-r1
+2026-04-20T17:26:48.175351 start barnes [4,5,6,7] 4
+2026-04-20T17:26:53.447009 custom barnes pod_name%3Dparsec-barnes-0420172335-r1-6ps5w
+2026-04-20T17:26:53.447200 custom barnes phase%3Dpod_scheduled+epoch%3D1776698808.000000
+2026-04-20T17:26:53.447235 custom barnes phase%3Dcontainer_started+epoch%3D1776698808.000000
+2026-04-20T17:26:53.576626 custom barnes phase%3Dbenchmark_start+epoch%3D1776698808.901172
+2026-04-20T17:27:13.639170 custom blackscholes phase%3Dbenchmark_end+epoch%3D1776698831.444433
+2026-04-20T17:27:17.640089 custom blackscholes phase%3Dpod_end+epoch%3D1776698831.000000
+2026-04-20T17:27:18.573789 end blackscholes
+2026-04-20T17:27:18.756187 custom radix phase%3Djob_created+epoch%3D1776698838.756088+actual_name%3Dparsec-radix-0420172335-r1
+2026-04-20T17:27:18.756291 start radix [3] 1
+2026-04-20T17:27:24.064988 custom radix pod_name%3Dparsec-radix-0420172335-r1-2cd8x
+2026-04-20T17:27:24.065183 custom radix phase%3Dpod_scheduled+epoch%3D1776698838.000000
+2026-04-20T17:27:24.065220 custom radix phase%3Dcontainer_started+epoch%3D1776698839.000000
+2026-04-20T17:27:24.194492 custom radix phase%3Dbenchmark_start+epoch%3D1776698839.434700
+2026-04-20T17:27:48.743486 custom radix phase%3Dpod_end+epoch%3D1776698867.000000
+2026-04-20T17:27:52.521000 custom barnes phase%3Dpod_end+epoch%3D1776698870.000000
+2026-04-20T17:27:52.656644 custom barnes phase%3Dbenchmark_end+epoch%3D1776698870.989314
+2026-04-20T17:27:53.873429 end radix
+2026-04-20T17:27:57.047818 custom streamcluster phase%3Dpod_end+epoch%3D1776698873.000000
+2026-04-20T17:27:57.172787 custom streamcluster phase%3Dbenchmark_end+epoch%3D1776698873.115720
+2026-04-20T17:27:57.903917 end streamcluster
+2026-04-20T17:27:58.987472 end barnes
+2026-04-20T17:27:59.240045 custom vips phase%3Djob_created+epoch%3D1776698879.239941+actual_name%3Dparsec-vips-0420172335-r1
+2026-04-20T17:27:59.240148 start vips [4,5,6,7] 4
+2026-04-20T17:28:03.436994 custom vips pod_name%3Dparsec-vips-0420172335-r1-vbr9n
+2026-04-20T17:28:03.437191 custom vips phase%3Dpod_scheduled+epoch%3D1776698879.000000
+2026-04-20T17:28:03.437224 custom vips phase%3Dcontainer_started+epoch%3D1776698879.000000
+2026-04-20T17:28:03.570238 custom vips phase%3Dbenchmark_start+epoch%3D1776698879.921701
+2026-04-20T17:28:40.940177 custom vips phase%3Dpod_end+epoch%3D1776698917.000000
+2026-04-20T17:28:41.077518 custom vips phase%3Dbenchmark_end+epoch%3D1776698917.845801
+2026-04-20T17:28:45.264316 end vips
+2026-04-20T17:28:45.265718 end scheduler

@@ -10,12 +10,12 @@ spec:
       containers:
       - image: anakli/cca:parsec_vips
         name: parsec-vips
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
         args: ["-c", "taskset -c 4-7 ./run -a run -S parsec -p vips -i native -n 4"]
         resources:
           requests:
-            cpu: "1"
+            cpu: "3"
             memory: "512Mi"
           limits:
             cpu: "4"

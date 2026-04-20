@@ -1,0 +1,183 @@
+{
+  "parsec-barnes": {
+    "actual_name": "parsec-barnes-0420172335-r1",
+    "cores": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "metrics": {
+      "exit_code": 0,
+      "job_wall": 61.82480597496033,
+      "parsec_real": 61.286,
+      "runtime": 62.088141441345215,
+      "startup_overhead": 0.7259781360626221
+    },
+    "pod_name": "parsec-barnes-0420172335-r1-6ps5w",
+    "status": "Complete",
+    "threads": 4,
+    "timestamps": {
+      "benchmark_end": 1776698870.9893136,
+      "benchmark_start": 1776698808.9011722,
+      "container_started": 1776698808.0,
+      "job_created": 1776698808.175194,
+      "pod_end": 1776698870.0,
+      "pod_scheduled": 1776698808.0
+    }
+  },
+  "parsec-blackscholes": {
+    "actual_name": "parsec-blackscholes-0420172335-r1",
+    "cores": [
+      3
+    ],
+    "metrics": {
+      "exit_code": 0,
+      "job_wall": 210.47339606285095,
+      "parsec_real": 68.752,
+      "runtime": 74.70185375213623,
+      "startup_overhead": 136.21597504615784
+    },
+    "pod_name": "parsec-blackscholes-0420172335-r1-r6xtj",
+    "status": "Complete",
+    "threads": 1,
+    "timestamps": {
+      "benchmark_end": 1776698831.4444327,
+      "benchmark_start": 1776698756.742579,
+      "container_started": 1776698756.0,
+      "job_created": 1776698620.526604,
+      "pod_end": 1776698831.0,
+      "pod_scheduled": 1776698756.0
+    }
+  },
+  "parsec-canneal": {
+    "actual_name": "parsec-canneal-0420172335-r1",
+    "cores": [
+      1,
+      2
+    ],
+    "metrics": {
+      "exit_code": 0,
+      "job_wall": 134.6465301513672,
+      "parsec_real": 132.882,
+      "runtime": 134.2829668521881,
+      "startup_overhead": 0.7913172245025635
+    },
+    "pod_name": "parsec-canneal-0420172335-r1-bfwqj",
+    "status": "Complete",
+    "threads": 2,
+    "timestamps": {
+      "benchmark_end": 1776698754.427754,
+      "benchmark_start": 1776698620.144787,
+      "container_started": 1776698620.0,
+      "job_created": 1776698619.3534698,
+      "pod_end": 1776698754.0,
+      "pod_scheduled": 1776698619.0
+    }
+  },
+  "parsec-freqmine": {
+    "actual_name": "parsec-freqmine-0420172335-r1",
+    "cores": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "metrics": {
+      "exit_code": 0,
+      "job_wall": 183.83679699897766,
+      "parsec_real": 182.3,
+      "runtime": 183.48181223869324,
+      "startup_overhead": 0.7330174446105957
+    },
+    "pod_name": "parsec-freqmine-0420172335-r1-n2zbt",
+    "status": "Complete",
+    "threads": 4,
+    "timestamps": {
+      "benchmark_end": 1776698802.3780327,
+      "benchmark_start": 1776698618.8962204,
+      "container_started": 1776698618.0,
+      "job_created": 1776698618.163203,
+      "pod_end": 1776698802.0,
+      "pod_scheduled": 1776698618.0
+    }
+  },
+  "parsec-radix": {
+    "actual_name": "parsec-radix-0420172335-r1",
+    "cores": [
+      3
+    ],
+    "metrics": {
+      "exit_code": null,
+      "job_wall": 28.24391198158264,
+      "parsec_real": null,
+      "runtime": null,
+      "startup_overhead": 0.678612232208252
+    },
+    "pod_name": "parsec-radix-0420172335-r1-2cd8x",
+    "status": "Failed",
+    "threads": 1,
+    "timestamps": {
+      "benchmark_end": null,
+      "benchmark_start": 1776698839.4347003,
+      "container_started": 1776698839.0,
+      "job_created": 1776698838.756088,
+      "pod_end": 1776698867.0,
+      "pod_scheduled": 1776698838.0
+    }
+  },
+  "parsec-streamcluster": {
+    "actual_name": "parsec-streamcluster-0420172335-r1",
+    "cores": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "metrics": {
+      "exit_code": 0,
+      "job_wall": 256.6111350059509,
+      "parsec_real": 255.313,
+      "runtime": 255.93638920783997,
+      "startup_overhead": 0.7904653549194336
+    },
+    "pod_name": "parsec-streamcluster-0420172335-r1-xq7nm",
+    "status": "Complete",
+    "threads": 4,
+    "timestamps": {
+      "benchmark_end": 1776698873.1157196,
+      "benchmark_start": 1776698617.1793303,
+      "container_started": 1776698617.0,
+      "job_created": 1776698616.388865,
+      "pod_end": 1776698873.0,
+      "pod_scheduled": 1776698616.0
+    }
+  },
+  "parsec-vips": {
+    "actual_name": "parsec-vips-0420172335-r1",
+    "cores": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "metrics": {
+      "exit_code": 0,
+      "job_wall": 37.760058879852295,
+      "parsec_real": 28.683,
+      "runtime": 37.92409944534302,
+      "startup_overhead": 0.681760311126709
+    },
+    "pod_name": "parsec-vips-0420172335-r1-vbr9n",
+    "status": "Complete",
+    "threads": 4,
+    "timestamps": {
+      "benchmark_end": 1776698917.8458009,
+      "benchmark_start": 1776698879.9217014,
+      "container_started": 1776698879.0,
+      "job_created": 1776698879.2399411,
+      "pod_end": 1776698917.0,
+      "pod_scheduled": 1776698879.0
+    }
+  }
+}
