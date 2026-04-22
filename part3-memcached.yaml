@@ -19,5 +19,4 @@ spec:
           cpu: "1"
           memory: "1Gi"
   nodeSelector:
-    cca-project-nodetype: "node-b-4core"
-python3 run_part3.py --yaml-dir ../parsec-benchmarks/part3/ --dry-run --runs=1
+    cca-project-nodetype: "node-a-8core"
