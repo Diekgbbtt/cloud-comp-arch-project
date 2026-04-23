@@ -18,7 +18,7 @@
 
 Job:  parsec-barnes
 Job time:  0:00:35
-Job:  parsec-blackscholes # TOOK MUCH LONGER THAN EXPECTED
+Job:  parsec-blackscholes # TOOK 30s LONGER THAN EXPECTED
 Job time:  0:01:09
 Job:  parsec-canneal
 Job time:  0:01:51
@@ -26,9 +26,9 @@ Job:  parsec-freqmine
 Job time:  0:02:06
 Job:  parsec-radix
 Job time:  0:00:13
-Job:  parsec-streamcluster
+Job:  parsec-streamcluster # TOOK 45s LONGER THAN EXPECTED
 Job time:  0:03:45
-Job:  parsec-vips
+Job:  parsec-vips # TOOK 47s LONGER THAN EXPECTED
 Job time:  0:01:17
 Job:  memcached
 Total time: 0:04:26
