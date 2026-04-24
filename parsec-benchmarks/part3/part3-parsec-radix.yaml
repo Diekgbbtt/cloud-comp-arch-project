@@ -12,14 +12,14 @@ spec:
         name: parsec-radix
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "taskset -c 3 ./run -a run -S splash2x -p radix -i native -n 1"]
+        args: ["-c", "taskset -c 1 ./run -a run -S splash2x -p radix -i native -n 1"]
         resources:
           requests:
             cpu: "1"
-            memory: "512Mi"
+            # memory: "1Gi"
           limits:
-            cpu: "2"
-            memory: "2Gi"
+            cpu: "1"
+            # memory: "30Gi"
       restartPolicy: Never
       nodeSelector:
-        cca-project-nodetype: "node-b-4core"
+        cca-project-nodetype: "node-a-8core"

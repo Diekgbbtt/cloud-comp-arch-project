@@ -12,14 +12,14 @@ spec:
         name: parsec-streamcluster
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "taskset -c 0-3 ./run -a run -S parsec -p streamcluster -i native -n 4"]
+        args: ["-c", "taskset -c 1-7 ./run -a run -S parsec -p streamcluster -i native -n 7"]
         resources:
           requests:
-            cpu: "4"
-            memory: "2Gi"
+            cpu: "6"
+            memory: "1Gi"
           limits:
-            cpu: "4"
-            memory: "2Gi"
+            cpu: "7"
+            memory: "30Gi"
       restartPolicy: Never
       nodeSelector:
         cca-project-nodetype: "node-a-8core"

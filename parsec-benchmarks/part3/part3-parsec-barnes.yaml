@@ -12,14 +12,14 @@ spec:
         name: parsec-barnes
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "taskset -c 4-7 ./run -a run -S splash2x -p barnes -i native -n 4"]
+        args: ["-c", "./run -a run -S splash2x -p barnes -i native -n 4"]
         resources:
           requests:
             cpu: "3"
-            memory: "512Mi"
+            # memory: "1Gi"
           limits:
             cpu: "4"
-            memory: "2Gi"
+            # memory: "30Gi"
       restartPolicy: Never
       nodeSelector:
-        cca-project-nodetype: "node-a-8core"
+        cca-project-nodetype: "node-b-4core"

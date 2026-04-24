@@ -39,13 +39,13 @@ JOB_NAMES = [
 # - canneal
 # - blackscholes -> radix
 JOB_DEPENDENCIES: dict[str, list[str]] = {
-	"parsec-streamcluster": ["parsec-radix"],
-	"parsec-freqmine": ["parsec-canneal"],
-	"parsec-canneal": [],
-	"parsec-blackscholes": ["parsec-radix", "parsec-streamcluster", "parsec-barnes"],
-	"parsec-barnes": ["parsec-radix", "parsec-streamcluster"],
-	"parsec-vips": ["parsec-canneal", "parsec-freqmine"],
-	"parsec-radix": [],
+	"parsec-streamcluster": [],
+	"parsec-freqmine": [],
+	"parsec-canneal": ["parsec-streamcluster"],
+	"parsec-blackscholes": ["parsec-radix", "parsec-streamcluster"],
+	"parsec-barnes": ["parsec-freqmine"],
+	"parsec-vips": ["parsec-barnes", "parsec-freqmine"],
+	"parsec-radix": ["parsec-streamcluster"],
 }
 
 
@@ -319,7 +319,7 @@ def validate_policy(job_names: list[str], dependencies: dict[str, list[str]]) ->
 def build_manifest_paths(jobs_dir: Path) -> dict[str, Path]:
 	manifest_paths: dict[str, Path] = {}
 	for job_name in JOB_NAMES:
-		manifest_path = jobs_dir / f"{job_name}.yaml"
+		manifest_path = jobs_dir / f"part3-{job_name}.yaml"
 		if not manifest_path.exists():
 			raise FileNotFoundError(f"Missing manifest file: {manifest_path}")
 		manifest_paths[job_name] = manifest_path
@@ -340,7 +340,7 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument(
 		"--jobs-dir",
 		type=Path,
-		default=REPO_ROOT / "parsec-benchmarks" / "part3" / "no_taskset",
+		default=REPO_ROOT / "parsec-benchmarks" / "part3",
 		help="Directory containing parsec-*.yaml job manifests.",
 	)
 	parser.add_argument(
@@ -365,7 +365,6 @@ def parse_args() -> argparse.Namespace:
 		help="Timeout for each Kubernetes watch cycle.",
 	)
 	return parser.parse_args()
-
 
 if __name__ == "__main__":
 	sys.exit(main())
