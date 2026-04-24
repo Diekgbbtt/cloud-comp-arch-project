@@ -42,7 +42,7 @@ JOB_DEPENDENCIES: dict[str, list[str]] = {
 	"parsec-streamcluster": [],
 	"parsec-freqmine": [],
 	"parsec-canneal": ["parsec-streamcluster"],
-	"parsec-blackscholes": ["parsec-radix", "parsec-streamcluster"],
+	"parsec-blackscholes": ["parsec-streamcluster"],
 	"parsec-barnes": ["parsec-freqmine"],
 	"parsec-vips": ["parsec-barnes", "parsec-freqmine"],
 	"parsec-radix": ["parsec-streamcluster"],
@@ -340,7 +340,7 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument(
 		"--jobs-dir",
 		type=Path,
-		default=REPO_ROOT / "parsec-benchmarks" / "part3",
+		default=REPO_ROOT / "automation" / "results" / "part3" / "diego_tentative3",
 		help="Directory containing parsec-*.yaml job manifests.",
 	)
 	parser.add_argument(
