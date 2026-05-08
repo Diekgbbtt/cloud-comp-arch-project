@@ -1,0 +1,14 @@
+2026-05-08 15:45:27,143 - openevolve.controller - INFO - Logging to runs/00007/logs/openevolve_20260508_154527.log
+2026-05-08 15:45:27,172 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 15:45:27,199 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-08 15:45:27,199 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-08 15:45:27,205 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 15:45:27,206 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 15:45:27,206 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 15:45:27,208 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 15:45:27,208 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 15:45:27,208 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 15:45:27,208 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 15:45:27,209 - openevolve.evaluator - WARNING - Evaluation attempt 1/4 failed for program 4ec8d2e4-712a-4bcc-a339-1728935e4e28: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:45:28,217 - openevolve.evaluator - WARNING - Evaluation attempt 2/4 failed for program 4ec8d2e4-712a-4bcc-a339-1728935e4e28: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:45:29,224 - openevolve.evaluator - WARNING - Evaluation attempt 3/4 failed for program 4ec8d2e4-712a-4bcc-a339-1728935e4e28: RUN_ID environment variable is not set. Export it before running.

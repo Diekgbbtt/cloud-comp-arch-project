@@ -1,0 +1,37 @@
+2026-05-08 15:46:47,904 - openevolve.controller - INFO - Logging to runs/00007/logs/openevolve_20260508_154647.log
+2026-05-08 15:46:47,930 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 15:46:47,957 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-08 15:46:47,958 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-08 15:46:47,964 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 15:46:47,965 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 15:46:47,965 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 15:46:47,967 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 15:46:47,967 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 15:46:47,967 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 15:46:47,967 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 15:46:47,968 - openevolve.evaluator - WARNING - Evaluation attempt 1/4 failed for program 9e5851a7-2560-4b82-a6ae-dbe900686f22: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:46:48,978 - openevolve.evaluator - WARNING - Evaluation attempt 2/4 failed for program 9e5851a7-2560-4b82-a6ae-dbe900686f22: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:46:49,985 - openevolve.evaluator - WARNING - Evaluation attempt 3/4 failed for program 9e5851a7-2560-4b82-a6ae-dbe900686f22: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:46:50,996 - openevolve.evaluator - WARNING - Evaluation attempt 4/4 failed for program 9e5851a7-2560-4b82-a6ae-dbe900686f22: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:46:51,000 - openevolve.evaluator - ERROR - All evaluation attempts failed for program 9e5851a7-2560-4b82-a6ae-dbe900686f22. Last error: RUN_ID environment variable is not set. Export it before running.
+2026-05-08 15:46:51,000 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-08 15:46:51,001 - openevolve.controller - WARNING - ⚠️  No 'combined_score' metric found in evaluation results. Using average of all numeric metrics (0.0000) for evolution guidance. For better evolution results, please modify your evaluator to return a 'combined_score' metric that properly weights different aspects of program performance.
+2026-05-08 15:46:51,012 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-08 15:46:51,013 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-08 15:46:51,014 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-08 15:46:51,014 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-05-08 15:46:51,014 - openevolve.database - INFO - Island Status:
+2026-05-08 15:46:51,015 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0 (best: 9e5851a7-2560-4b82-a6ae-dbe900686f22)
+2026-05-08 15:46:51,015 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 15:46:51,015 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 15:46:51,015 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 15:46:51,015 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-08 15:46:51,020 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-08 15:46:53,698 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-08 15:46:53,699 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-08 15:46:53,704 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-08 15:46:53,704 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-08 15:46:53,704 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-08 15:46:53,857 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 15:46:54,024 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 15:46:54,179 - openevolve.controller - INFO - Force exit requested - terminating immediately
