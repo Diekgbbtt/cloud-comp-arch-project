@@ -1,13 +1,14 @@
 """Generate part-3 plots (plot A: memcache p95 + node-a-8core job annotations;
-plot B: per-core Gantt across both machines) for runs 1, 2, 4."""
+plot B: per-core Gantt across both machines) for specified runs."""
 import json
+import sys
 from datetime import datetime, timezone
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
-BASE = "automation/results/part3/diego_tentative2"
+BASE = sys.argv[1] if len(sys.argv) > 1 else "automation/results/part3/diego_tentative2"
+RUNS = [int(x) for x in sys.argv[2:]] if len(sys.argv) > 2 else [1, 2, 4]
 FMT = "%Y-%m-%dT%H:%M:%SZ"
-RUNS = [1, 2, 4]
 
 COLORS = {
     "barnes":        "#AACCCA",
@@ -161,6 +162,7 @@ def plot_b(r, t0, jobs, out):
     plt.close(fig)
 
 
+print(f"Plotting from {BASE}, runs: {RUNS}\n")
 for r in RUNS:
     t0, jobs, lats = load_run(r)
     plot_a(r, t0, jobs, lats, f"part3_run{r}_memcache_p95.png")

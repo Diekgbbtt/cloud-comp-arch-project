@@ -1,0 +1,38 @@
+2026-05-08 09:27:01,661 - openevolve.controller - INFO - Logging to runs/00002/logs/openevolve_20260508_092701.log
+2026-05-08 09:27:01,692 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 09:27:01,721 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: moonshotai/Kimi-K2.5
+2026-05-08 09:27:01,722 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: moonshotai/Kimi-K2.5 (weight: 1.00)
+2026-05-08 09:27:01,729 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 09:27:01,729 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 09:27:01,729 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 09:27:01,731 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 09:27:01,731 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 09:27:01,731 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 09:27:01,731 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 09:32:06,364 - openevolve.evaluator - INFO - Evaluated program e29c7ffa-3893-4be8-b8f0-b13cb6c1f6be in 304.63s: combined_score=0.4997, run_id=18.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=248.0000, p95_worst_ms=0.4906, slo_violation_fraction=0.0000, perf_term=0.4997, slo_term=1.0000, evaluation_wall_sec=296.4328
+2026-05-08 09:32:06,367 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-08 09:32:06,382 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-08 09:32:06,383 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-08 09:32:06,384 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-08 09:32:06,384 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-05-08 09:32:06,384 - openevolve.database - INFO - Island Status:
+2026-05-08 09:32:06,384 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.4997, avg=0.4997, diversity=0.00, gen=0 (best: e29c7ffa-3893-4be8-b8f0-b13cb6c1f6be)
+2026-05-08 09:32:06,384 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 09:32:06,384 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 09:32:06,384 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 09:32:06,384 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-08 09:32:06,390 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-08 09:33:08,744 - openevolve.process_parallel - WARNING - Iteration 1 error: LLM returned None response
+2026-05-08 09:34:09,809 - openevolve.process_parallel - WARNING - Iteration 2 error: LLM returned None response
+2026-05-08 09:35:10,940 - openevolve.process_parallel - WARNING - Iteration 3 error: LLM returned None response
+2026-05-08 09:36:11,969 - openevolve.process_parallel - WARNING - Iteration 4 error: LLM returned None response
+2026-05-08 09:37:29,633 - openevolve.process_parallel - WARNING - Iteration 5 error: LLM generation failed: Error code: 503 - {'error': 'No provider found for the requested service.'}
+2026-05-08 09:37:59,304 - openevolve.process_parallel - WARNING - Iteration 6 error: LLM generation failed: Error code: 503 - {'error': 'No provider found for the requested service.'}
+2026-05-08 09:38:14,699 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-08 09:38:14,699 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-08 09:38:14,710 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-08 09:38:14,710 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-08 09:38:14,710 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-08 09:38:14,851 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 09:38:15,002 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 09:38:16,685 - openevolve.controller - INFO - Force exit requested - terminating immediately

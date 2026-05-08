@@ -1,22 +1,92 @@
 # By default, your evolution will run for 50 iterations; feel free to change this value as needed.
 # At any time, you can resume evolution from a specific checkpoint by providing the --checkpoint flag to openevolve-run.
-max_iterations: 50
+max_iterations: 10
 checkpoint_interval: 1 # Do not change this
 
 llm:
-  api_base: "https://api.swissai.cscs.ch/v1"
-  primary_model: "<your model>"
+  api_base: "https://api.swissai.svc.cscs.ch/v1"
+  primary_model: "swiss-ai/Apertus-70B-Instruct-2509" # Qwen/Qwen3.5-27B
   top_p: 0.7 # Feel free to experiment with this value
   # Possible additional parameters to configure the LLM:
-  # temperature: 
+  # temperature: 0.7 # default
   # max_tokens: 
-  # timeout: 
+  timeout: 500
 
 prompt:
   # Prompts to provide the LLM with. You can directly write the prompt in the config, e.g.
-  # system_message: |
-  #   You are an expert programmer tasked with optimizing the following code...
-  #
+  system_message: |
+    CRITICAL OUTPUT FORMAT RULE: You must output ONLY raw Python code with no markdown 
+    fences, no ```python, no ``` delimiters, no preamble, no explanation. Your entire 
+    response must be valid Python that can be executed directly by the interpreter.
+    Any response that begins with ``` will cause an immediate syntax error and score zero.
+    You are a top notch engineer with both high system and software proficiency, you are remarkably expert at designing scheduling policies for heterogeneous workloads in cloud-native systems accounting for jobs profiles, multi-threading optimization speedup factors, cross-jobs interference, phyisical machine specifications and virtualization implications.
+    You always adopt a principled approach to the design: ground in the baseline, asserting asseted constraints it carries, iteratively analyse results throughly by using holistically the observation system you are providede with and rooting unexpected behaviours to confident root causes and take decisions that are aware of all the dependecies progresively accumulated.
+    Your task is to evolve a Python automation script that schedules seven PARSEC/SPLASH-2x batch jobs alongside a latency-critical memcached
+    service, minimizing total batch makespan while strictly enforcing a memcached p95 latency
+    SLO of 1 ms at 30K QPS.
+
+    ## CLUSTER TOPOLOGY
+    Two heterogeneous worker nodes are available for workloads:
+    - node-a-8core (e2-standard-8): 8 vCPUs, 32 GB RAM, Intel Skylake. Hosts memcached
+    (pinned to core 0 via taskset, 1 thread, Guaranteed QoS). Remaining 7 cores available
+    for batch jobs.
+    - node-b-4core (n2d-highcpu-4): 4 vCPUs, 4 GB RAM, AMD EPYC Milan. No memory headroom
+    for radix (OOMKills on native dataset). All 4 cores available for batch jobs.
+
+    ## JOBS AND THEIR PROFILES
+    These are the immutable characteristics you must reason from. Thread counts and node
+    placement are your primary levers.
+    - blackscholes: CPU-bound, regular memory access, sub-linear scaling (2.62x at 4T, 3.07x
+    at 8T). Safe co-tenant on node-a.
+    - canneal: DRAM-latency-bound with uniformly random access pattern causing DRAM bank
+    conflicts. Scaling: 1.57x at 2T, 2.32x at 4T. Adding threads beyond 4 degrades
+    throughput due to memory controller queue saturation. Safe co-tenant (LLC-inert).
+    - streamcluster: LLC-working-set-bound (1.81x LLC slowdown under interference). Longest
+    job on node-a. Scaling still steep at 8T (4.62x).
+    - radix: MUST run on node-a (OOMKills on node-b). Very short absolute runtime. High
+    parallel scaling but marginal gain given brevity.
+    - freqmine: Near-linear parallel scaling (3.92x at 4T, 98% efficiency). Faster on EPYC
+    Milan than Intel Skylake at equal thread count. CPU-sensitive.
+    - barnes: LLC-bound (2.56x LLC slowdown). MUST NOT run on node-a: coallocating with
+    memcached causes immediate p95 latency violations regardless of core pinning, because
+    LLC is physically shared across cores.
+    - vips: Broad cache hierarchy aggressor (1.75-1.98x across all resource types). MUST NOT
+    run on node-a for the same LLC/latency reason as barnes.
+    
+    ## SCRIPT PRIMITIVES YOU MAY EDIT
+    You may only modify the two structures inside the EVOLVE block:
+
+    `edit_job_configuration(yaml_objects)`: receives the list of dicts which encapsulate each job configurations parameters 
+    and return it back with the programmed edit integrated. 
+    For each job in the respective conditional block you may set:
+    - template_spec["nodeSelector"]["cca-project-nodetype"]: "node-b-4core"/"node-a-8core"
+    	- the cluster working node a job is allocated on: either node-b-4core(n2d-highcpu-4) or node-a-8core(e2-standard-8)
+    - containers[0]["resources"]["requests"]["cpu"]/["memory"] and ["resources"]["limits"]["cpu"]/["memory"]
+      - the job minimum available vCPUs and memory space to be allocated and the maximum they can get
+    - containers[0]["args"]: list of launch cmd chars, template: ["-c", "taskset -c <vCPUs_range> ./run -a run -S parsec -p blackscholes -i native -n <software_threads_count>"]
+      - CPU pinning through process affinity with tasksets("-c", "taskset -c <vCPUs_range>), in which vCPUs_range is a 0-indexed list with syntax: <lower-boundary>-<upper-boundary>, e.g. 2-3 or 0-4 or just collpases to the vCPU number if bound to jsut one core, e.g. 1 
+    	- Software threads count: -n <software_threads_count>, e.g. -n 3 will spawn 3 software threads 
+    Use taskset for any jobs that run concurrently to enforce strict core partitioning and prevent OS scheduler interference.
+    The basleine program mutated configurations are used in the baseline scheduling policy, that you must optimize 
+    ### ANY OTHER PROPERTY SHOULD NOT BE TOUCHED
+
+    `JOB_DEPENDENCIES`: a dict mapping each job name to its list of prerequisite job names.
+    A job is dispatched as soon as all its prerequisites have reached Completed status.
+    An empty list means the job is eligible immediately. This dict encodes both sequencing
+    and concurrency: jobs with no dependency relationship between them may run in parallel
+    if cluster resources permit.
+
+    ## GOAL
+    You are tasked with optimizing the automation script that automated the scheduling of jobs via kubernetes API leveraging its client library   ## OPTIMIZATION OBJECTIVE Minimize total makespan = max(job completion times) - min(job start times), subject to
+    memcached p95 latency remaining strictly below 1 ms across all measurement intervals.
+    The evaluator returns a combined_score = sigmoid(log(baseline/makespan)) * slo_gate
+    where slo_gate collapses to at most 0.05 if any p95 interval exceeds 1 ms. A compliant
+    run with lower makespan always outscores a faster but non-compliant run. Prioritize SLO
+    compliance first, makespan reduction second.
+    When proposing changes, reason explicitly about: (a) which resource dimension each change
+    targets, (b) which empirical constraint it respects or challenges, and (c) the expected
+    direction of impact on both makespan and SLO compliance.
+  include_artifacts: true
   # Alternatively, you can create files containing the prompts, and reference them here, e.g.
   # template_dir: "<path-to-prompt-directory>"
   # system_message: "name_of_file"
@@ -27,16 +97,16 @@ prompt:
 database:
   population_size: 200 # Do not change this
   # Relevant parameters:
-  # num_islands: 
-  # elite_selection_ratio: 
-  # exploitation_ratio: 
+  num_islands: 4
+  elite_selection_ratio: 0.2
+  exploitation_ratio: 0.6 # probably critical variable
 
 # Evaluator configuration
 evaluator:
   cascade_evaluation: false
   parallel_evaluations: 1
   # Relevant parameters:
-  # timeout: 
+  timeout: 1000
 
 diff_based_evolution: true
 max_code_length: 50000

@@ -1,0 +1,44 @@
+[
+  {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+      "labels": {
+        "name": "parsec-vips"
+      },
+      "name": "parsec-vips"
+    },
+    "spec": {
+      "template": {
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "-c",
+                "./run -a run -S parsec -p vips -i native -n 4"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "image": "anakli/cca:parsec_vips",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "parsec-vips",
+              "resources": {
+                "limits": {
+                  "cpu": "4"
+                },
+                "requests": {
+                  "cpu": "3"
+                }
+              }
+            }
+          ],
+          "nodeSelector": {
+            "cca-project-nodetype": "node-b-4core"
+          },
+          "restartPolicy": "Never"
+        }
+      }
+    }
+  }
+]

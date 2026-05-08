@@ -1,0 +1,26 @@
+{
+  "id": "740fa129-ee97-4665-820d-cb5c10a45927",
+  "generation": 0,
+  "iteration": 0,
+  "current_iteration": 6,
+  "metrics": {
+    "combined_score": 0.4214440076913914,
+    "run_id": 44.0,
+    "baseline_makespan_sec": 247.67,
+    "mcperf_warmup_returncode": 0.0,
+    "scheduler_cmd": "/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpmh65zx45.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/run_000044",
+    "scheduler_stdout": "",
+    "scheduler_stderr": "2026-05-08 12:39:38,369 INFO Loaded kubeconfig context=current\n2026-05-08 12:39:38,691 INFO SCHEDULED job=parsec-streamcluster deps=[]\n2026-05-08 12:39:38,755 INFO SCHEDULED job=parsec-freqmine deps=[]\n2026-05-08 12:41:53,514 INFO FINISHED job=parsec-freqmine status=Succeeded\n2026-05-08 12:41:53,695 INFO SCHEDULED job=parsec-barnes deps=['parsec-freqmine']\n2026-05-08 12:42:32,115 INFO FINISHED job=parsec-streamcluster status=Succeeded\n2026-05-08 12:42:32,180 INFO SCHEDULED job=parsec-canneal deps=['parsec-streamcluster']\n2026-05-08 12:42:32,236 INFO SCHEDULED job=parsec-radix deps=['parsec-streamcluster']\n2026-05-08 12:42:38,626 INFO FINISHED job=parsec-barnes status=Succeeded\n2026-05-08 12:42:38,689 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-freqmine']\n2026-05-08 12:43:14,197 INFO FINISHED job=parsec-radix status=Succeeded\n2026-05-08 12:43:14,269 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-radix', 'parsec-streamcluster']\n2026-05-08 12:43:29,791 INFO FINISHED job=parsec-vips status=Succeeded\n2026-05-08 12:44:13,410 INFO FINISHED job=parsec-blackscholes status=Succeeded\n2026-05-08 12:45:22,638 INFO FINISHED job=parsec-canneal status=Succeeded\n2026-05-08 12:45:22,639 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']\n2026-05-08 12:45:22,641 INFO Scheduler finished in 344.27 seconds\n",
+    "scheduler_returncode": 0.0,
+    "job_name_map_json": "{\n  \"parsec-barnes\": \"parsec-barnes\",\n  \"parsec-blackscholes\": \"parsec-blackscholes\",\n  \"parsec-canneal\": \"parsec-canneal\",\n  \"parsec-freqmine\": \"parsec-freqmine\",\n  \"parsec-radix\": \"parsec-radix\",\n  \"parsec-streamcluster\": \"parsec-streamcluster\",\n  \"parsec-vips\": \"parsec-vips\"\n}",
+    "makespan_sec": 340.0,
+    "p95_worst_ms": 0.7357,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.4214440076913914,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 390.69332814216614
+  },
+  "language": "python",
+  "timestamp": 1778237162.3610299,
+  "saved_at": 1778237760.5450199
+}

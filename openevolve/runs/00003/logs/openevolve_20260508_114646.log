@@ -1,0 +1,252 @@
+2026-05-08 11:46:46,130 - openevolve.controller - INFO - Logging to runs/00003/logs/openevolve_20260508_114646.log
+2026-05-08 11:46:46,162 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 11:46:46,189 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-08 11:46:46,189 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-08 11:46:46,196 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 11:46:46,196 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 11:46:46,196 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 11:46:46,198 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 11:46:46,198 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 11:46:46,198 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 11:46:46,198 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 11:52:18,965 - openevolve.evaluator - INFO - Evaluated program 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2 in 332.77s: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 11:52:18,967 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-08 11:52:18,990 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-08 11:52:18,991 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-08 11:52:18,991 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-08 11:52:18,991 - openevolve.controller - INFO - Using island-based evolution with 10 islands
+2026-05-08 11:52:18,992 - openevolve.database - INFO - Island Status:
+2026-05-08 11:52:18,992 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.4720, avg=0.4720, diversity=0.00, gen=0 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:52:18,992 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-08 11:52:18,998 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-08 11:53:49,658 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-05-08 11:53:49,662 - openevolve.process_parallel - INFO - Iteration 1: Program 01ea1800-4b4b-4cc0-b4d7-9f6fda3be69e (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 89.94s
+2026-05-08 11:53:49,662 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=32.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=13.0766
+2026-05-08 11:53:49,662 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 1
+2026-05-08 11:53:49,663 - openevolve.database - INFO - Island Status:
+2026-05-08 11:53:49,663 - openevolve.database - INFO -  * Island 0: 2 programs, best=0.4720, avg=0.2360, diversity=982.10, gen=1 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,663 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:53:49,665 - openevolve.database - INFO - Saved database with 2 programs to runs/00003/checkpoints/checkpoint_1
+2026-05-08 11:53:49,665 - openevolve.controller - INFO - Saved best program at checkpoint 1 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 11:53:49,665 - openevolve.controller - INFO - Saved checkpoint at iteration 1 to runs/00003/checkpoints/checkpoint_1
+2026-05-08 11:55:23,520 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 0}
+2026-05-08 11:55:23,522 - openevolve.process_parallel - INFO - Iteration 2: Program c1a60871-2b4b-4ed1-8ad4-5de5a2dd5572 (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 93.86s
+2026-05-08 11:55:23,522 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=33.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=13.0383
+2026-05-08 11:55:23,522 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 2
+2026-05-08 11:55:23,524 - openevolve.database - INFO - Island Status:
+2026-05-08 11:55:23,524 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.4720, avg=0.1573, diversity=655.07, gen=2 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 11:55:23,524 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,524 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,525 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:55:23,531 - openevolve.database - INFO - Saved database with 3 programs to runs/00003/checkpoints/checkpoint_2
+2026-05-08 11:55:23,532 - openevolve.controller - INFO - Saved best program at checkpoint 2 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 11:55:23,532 - openevolve.controller - INFO - Saved checkpoint at iteration 2 to runs/00003/checkpoints/checkpoint_2
+2026-05-08 11:57:02,962 - openevolve.process_parallel - INFO - Iteration 3: Program 1d6606fc-86b3-4272-a987-eb394e10f2ff (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 99.44s
+2026-05-08 11:57:02,963 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=34.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=12.9360
+2026-05-08 11:57:02,963 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 3
+2026-05-08 11:57:02,967 - openevolve.database - INFO - Island Status:
+2026-05-08 11:57:02,967 - openevolve.database - INFO -  * Island 0: 4 programs, best=0.4720, avg=0.1180, diversity=493.40, gen=3 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 11:57:02,967 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,967 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,968 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:57:02,974 - openevolve.database - INFO - Saved database with 4 programs to runs/00003/checkpoints/checkpoint_3
+2026-05-08 11:57:02,975 - openevolve.controller - INFO - Saved best program at checkpoint 3 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 11:57:02,975 - openevolve.controller - INFO - Saved checkpoint at iteration 3 to runs/00003/checkpoints/checkpoint_3
+2026-05-08 11:58:41,910 - openevolve.process_parallel - INFO - Iteration 4: Program 05bd511c-cd80-4f89-9809-048b3b0f7065 (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 98.95s
+2026-05-08 11:58:41,911 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=35.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=12.9618
+2026-05-08 11:58:41,911 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 4
+2026-05-08 11:58:41,913 - openevolve.database - INFO - Island Status:
+2026-05-08 11:58:41,913 - openevolve.database - INFO -  * Island 0: 5 programs, best=0.4720, avg=0.0944, diversity=474.77, gen=4 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,913 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:58:41,920 - openevolve.database - INFO - Saved database with 5 programs to runs/00003/checkpoints/checkpoint_4
+2026-05-08 11:58:41,921 - openevolve.controller - INFO - Saved best program at checkpoint 4 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 11:58:41,921 - openevolve.controller - INFO - Saved checkpoint at iteration 4 to runs/00003/checkpoints/checkpoint_4
+2026-05-08 12:00:24,758 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 6, 'diversity': 1}
+2026-05-08 12:00:24,759 - openevolve.process_parallel - INFO - Iteration 5: Program 1b05c695-dcfc-428f-878d-7dd60e169f3a (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 102.85s
+2026-05-08 12:00:24,760 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=36.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=14.0456
+2026-05-08 12:00:24,760 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2026-05-08 12:00:24,763 - openevolve.database - INFO - Island Status:
+2026-05-08 12:00:24,763 - openevolve.database - INFO -  * Island 0: 6 programs, best=0.4720, avg=0.0787, diversity=332.80, gen=5 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 12:00:24,763 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,764 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:00:24,773 - openevolve.database - INFO - Saved database with 6 programs to runs/00003/checkpoints/checkpoint_5
+2026-05-08 12:00:24,773 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:00:24,773 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to runs/00003/checkpoints/checkpoint_5
+2026-05-08 12:02:06,124 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 0}
+2026-05-08 12:02:06,127 - openevolve.process_parallel - INFO - Iteration 6: Program 9acf3085-042b-485c-b93b-1d7396aa4d9e (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 101.37s
+2026-05-08 12:02:06,127 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=37.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=11.9953
+2026-05-08 12:02:06,127 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 6
+2026-05-08 12:02:06,131 - openevolve.database - INFO - Island Status:
+2026-05-08 12:02:06,131 - openevolve.database - INFO -  * Island 0: 7 programs, best=0.4720, avg=0.0674, diversity=332.80, gen=6 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,131 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:02:06,143 - openevolve.database - INFO - Saved database with 7 programs to runs/00003/checkpoints/checkpoint_6
+2026-05-08 12:02:06,144 - openevolve.controller - INFO - Saved best program at checkpoint 6 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:02:06,144 - openevolve.controller - INFO - Saved checkpoint at iteration 6 to runs/00003/checkpoints/checkpoint_6
+2026-05-08 12:03:50,276 - openevolve.process_parallel - INFO - Iteration 7: Program 75ebbaec-0654-4b09-ab50-a321d6b42753 (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 104.15s
+2026-05-08 12:03:50,277 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=38.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=11.1721
+2026-05-08 12:03:50,277 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 7
+2026-05-08 12:03:50,279 - openevolve.database - INFO - Island Status:
+2026-05-08 12:03:50,279 - openevolve.database - INFO -  * Island 0: 8 programs, best=0.4720, avg=0.0590, diversity=332.80, gen=7 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,279 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:03:50,288 - openevolve.database - INFO - Saved database with 8 programs to runs/00003/checkpoints/checkpoint_7
+2026-05-08 12:03:50,289 - openevolve.controller - INFO - Saved best program at checkpoint 7 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:03:50,289 - openevolve.controller - INFO - Saved checkpoint at iteration 7 to runs/00003/checkpoints/checkpoint_7
+2026-05-08 12:05:37,321 - openevolve.process_parallel - INFO - Iteration 8: Program 3e42ffba-e9e5-4b96-80c2-836cdfc30744 (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 107.04s
+2026-05-08 12:05:37,322 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=39.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=11.2679
+2026-05-08 12:05:37,322 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 8
+2026-05-08 12:05:37,326 - openevolve.database - INFO - Island Status:
+2026-05-08 12:05:37,326 - openevolve.database - INFO -  * Island 0: 9 programs, best=0.4720, avg=0.0524, diversity=232.67, gen=8 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,326 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:05:37,338 - openevolve.database - INFO - Saved database with 9 programs to runs/00003/checkpoints/checkpoint_8
+2026-05-08 12:05:37,338 - openevolve.controller - INFO - Saved best program at checkpoint 8 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:05:37,338 - openevolve.controller - INFO - Saved checkpoint at iteration 8 to runs/00003/checkpoints/checkpoint_8
+2026-05-08 12:07:16,986 - openevolve.process_parallel - INFO - Iteration 9: Program 48b84f21-b8bb-470a-8e96-f8fee3a136c5 (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 99.67s
+2026-05-08 12:07:16,987 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=40.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=11.4484
+2026-05-08 12:07:16,987 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 9
+2026-05-08 12:07:16,991 - openevolve.database - INFO - Island Status:
+2026-05-08 12:07:16,991 - openevolve.database - INFO -  * Island 0: 10 programs, best=0.4720, avg=0.0472, diversity=232.67, gen=9 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:16,991 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:07:17,005 - openevolve.database - INFO - Saved database with 10 programs to runs/00003/checkpoints/checkpoint_9
+2026-05-08 12:07:17,006 - openevolve.controller - INFO - Saved best program at checkpoint 9 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:07:17,006 - openevolve.controller - INFO - Saved checkpoint at iteration 9 to runs/00003/checkpoints/checkpoint_9
+2026-05-08 12:08:59,555 - openevolve.process_parallel - INFO - Iteration 10: Program 4a978962-ac56-44aa-be2f-5de881609473 (parent: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2) completed in 102.56s
+2026-05-08 12:08:59,556 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, run_id=41.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=1.0000, error_type=EvaluationError, error_message=scheduler subprocess failed, traceback=Traceback (most recent call last):
+  File "/Users/diekgbbtt/cloud-comp-arch-project/openevolve/evaluator.py", line 252, in evaluate
+    raise EvaluationError("scheduler subprocess failed")
+evaluation_module.EvaluationError: scheduler subprocess failed
+, evaluation_wall_sec=12.2165
+2026-05-08 12:08:59,556 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 10
+2026-05-08 12:08:59,560 - openevolve.database - INFO - Island Status:
+2026-05-08 12:08:59,560 - openevolve.database - INFO -  * Island 0: 11 programs, best=0.4720, avg=0.0429, diversity=232.67, gen=10 (best: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2)
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,560 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 12:08:59,574 - openevolve.database - INFO - Saved database with 11 programs to runs/00003/checkpoints/checkpoint_10
+2026-05-08 12:08:59,574 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:08:59,574 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to runs/00003/checkpoints/checkpoint_10
+2026-05-08 12:08:59,575 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-05-08 12:08:59,584 - openevolve.database - INFO - Saved database with 11 programs to runs/00003/checkpoints/checkpoint_10
+2026-05-08 12:08:59,585 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:08:59,585 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to runs/00003/checkpoints/checkpoint_10
+2026-05-08 12:08:59,785 - openevolve.process_parallel - INFO - Stopped process pool
+2026-05-08 12:08:59,785 - openevolve.controller - INFO - Using tracked best program: 6cf325ed-f4fc-4d86-b14b-bfe65a18d6f2
+2026-05-08 12:08:59,785 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.4720, run_id=31.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=277.0000, p95_worst_ms=0.5022, slo_violation_fraction=0.0000, perf_term=0.4720, slo_term=1.0000, evaluation_wall_sec=325.1764
+2026-05-08 12:08:59,786 - openevolve.controller - INFO - Saved best program to runs/00003/best/best_program.py with program info to runs/00003/best/best_program_info.json

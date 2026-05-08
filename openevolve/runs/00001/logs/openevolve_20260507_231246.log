@@ -1,0 +1,32 @@
+2026-05-07 23:12:46,279 - openevolve.controller - INFO - Logging to runs/00001/logs/openevolve_20260507_231246.log
+2026-05-07 23:12:46,307 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-07 23:12:46,334 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-07 23:12:46,334 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-07 23:12:46,341 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-07 23:12:46,342 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-07 23:12:46,342 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-07 23:12:46,343 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-07 23:12:46,343 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-07 23:12:46,343 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-07 23:12:46,343 - openevolve.controller - INFO - Adding initial program to database
+2026-05-07 23:19:10,868 - openevolve.evaluator - INFO - Evaluated program dbaed874-db51-40ef-ba25-42818a7ec2a4 in 384.52s: combined_score=0.0207, run_id=8.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=330.0000, p95_worst_ms=1.8726, slo_violation_fraction=0.0323, perf_term=0.4287, slo_term=0.0484, evaluation_wall_sec=377.6583
+2026-05-07 23:19:10,870 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-07 23:19:10,890 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-07 23:19:10,891 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-07 23:19:10,891 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-07 23:19:10,891 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-05-07 23:19:10,891 - openevolve.database - INFO - Island Status:
+2026-05-07 23:19:10,891 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0207, avg=0.0207, diversity=0.00, gen=0 (best: dbaed874-db51-40ef-ba25-42818a7ec2a4)
+2026-05-07 23:19:10,891 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-07 23:19:10,891 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-07 23:19:10,891 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-07 23:19:10,891 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-07 23:19:10,897 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-07 23:20:45,912 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-07 23:20:45,913 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-07 23:20:45,919 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-07 23:20:45,919 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-07 23:20:45,919 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-07 23:20:46,152 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-07 23:20:46,274 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-07 23:20:47,073 - openevolve.controller - INFO - Force exit requested - terminating immediately
