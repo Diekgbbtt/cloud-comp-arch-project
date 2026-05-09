@@ -6,7 +6,7 @@ kops validate cluster --wait 10m
 kubectl get nodes -o wide
 
 *SSH to memcache-server*
-gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing2 ubuntu@client-measure-r3js \
+gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing2 ubuntu@memcache-server-w42x \
 --zone europe-west1-b --tunnel-through-iap
 
 ssh -i ~/.ssh/cloud-computing ubuntu@35.159.97.227
@@ -17,7 +17,7 @@ sudo apt install -y memcached libmemcached-tools
 sudo systemctl status memcached
 
 *Increase memory limit*
-sudo vim /etc/memcached.conf
+sudo nano /etc/memcached.conf
 *Update line -m with 1024 and lines with -l with INTERNAL_IP of memcache-server*
 *Update threads by adding line -t*
 sudo systemctl restart memcached
@@ -47,3 +47,16 @@ make
 - Check if python is installed
 - pip install docker psutil
 - copy necessary files to vm
+
+*Record CPU utilization*
+*Correct with mpstat*
+for i in {1..70}; do echo -n "$(date +%s%3N),"; mpstat -P 0 1 1 | awk '$2 ~ /[0-9]+/ && $1 == "Average:" {sum += 100 - $12} END {printf "%.1f\n", sum}'; sleep 0.1; done > cpu_core_usage.txt
+
+for i in {1..60}; do echo -n "$(date +%s%3N),"; mpstat -P 0-2 1 1 | awk '$2 ~ /[0-9]+/ && $1 == "Average:" {sum += 100 - $12} END {printf "%.1f\n", sum}'; sleep 0.1; done > cpu_core_usage.txt
+*Old ones*
+for i in {1..75}; do echo -n "$(date +%s%3N),"; mpstat -P ALL 1 1 | awk '/^[0-9]/ && $3 ~ /[0-9]+/ {sum += 100 - $12} END {printf "%.1f\n", sum}'; sleep 0.1; done > cpu_total_usage.txt
+
+for i in {1..75}; do echo -n "$(date +%s%3N),"; mpstat -P 0 1 1 | awk '/^[0-9]/ && $3=="0" {printf "%.1f\n", 100 - $12}'; sleep 0.1; done > cpu_core0_usage.txt
+
+for i in {1..75}; do echo -n "$(date +%s%3N),"; mpstat -P 0 1 1 | awk '$2 == "0" && $1 == "Average:" {printf "%.1f\n", 100 - $12}'; sleep 0.1; done > cpu_core0_usage.txt
+
