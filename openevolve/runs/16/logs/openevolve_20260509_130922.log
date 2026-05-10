@@ -1,0 +1,116 @@
+2026-05-09 13:09:22,603 - openevolve.controller - INFO - Logging to runs/16/logs/openevolve_20260509_130922.log
+2026-05-09 13:09:22,630 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-09 13:09:22,661 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: deepseek-ai/deepseek-coder-33b-instruct
+2026-05-09 13:09:22,661 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: deepseek-ai/deepseek-coder-33b-instruct (weight: 1.00)
+2026-05-09 13:09:22,668 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-09 13:09:22,671 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-09 13:09:22,671 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-09 13:09:22,674 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-09 13:09:22,674 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-09 13:09:22,674 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-09 13:09:22,674 - openevolve.controller - INFO - Adding initial program to database
+2026-05-09 13:16:22,224 - openevolve.evaluator - INFO - Evaluated program 584afea5-adcb-49dc-992f-7596d2134f04 in 419.55s: combined_score=0.0191, makespan_sec=362.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.6894, slo_violation_fraction=0.2353, perf_term=0.5000, slo_term=0.0382, evaluation_wall_sec=411.4159, is_baseline_run=1.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=362.0000
+2026-05-09 13:16:22,226 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-09 13:16:22,242 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-09 13:16:22,244 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-09 13:16:22,244 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-09 13:16:22,244 - openevolve.controller - INFO - Using island-based evolution with 6 islands
+2026-05-09 13:16:22,244 - openevolve.database - INFO - Island Status:
+2026-05-09 13:16:22,244 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0191, avg=0.0191, diversity=0.00, gen=0 (best: 584afea5-adcb-49dc-992f-7596d2134f04)
+2026-05-09 13:16:22,244 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:16:22,244 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:16:22,244 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:16:22,244 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:16:22,245 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:16:22,245 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-09 13:16:22,251 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-09 13:24:00,476 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 5}
+2026-05-09 13:24:00,478 - openevolve.process_parallel - INFO - Iteration 1: Program a5026a65-21b3-410a-a50a-18f0c60a96c4 (parent: 584afea5-adcb-49dc-992f-7596d2134f04) completed in 457.47s
+2026-05-09 13:24:00,478 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0187, makespan_sec=357.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.4526, slo_violation_fraction=0.2727, perf_term=0.5139, slo_term=0.0364, evaluation_wall_sec=403.5778, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=357.0000
+2026-05-09 13:24:00,478 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 1
+2026-05-09 13:24:00,478 - openevolve.database - INFO - Island Status:
+2026-05-09 13:24:00,478 - openevolve.database - INFO -  * Island 0: 2 programs, best=0.0191, avg=0.0189, diversity=0.00, gen=1 (best: 584afea5-adcb-49dc-992f-7596d2134f04)
+2026-05-09 13:24:00,478 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:24:00,478 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:24:00,478 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:24:00,478 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:24:00,478 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:24:00,484 - openevolve.database - INFO - Saved database with 2 programs to runs/16/checkpoints/checkpoint_1
+2026-05-09 13:24:00,485 - openevolve.controller - INFO - Saved best program at checkpoint 1 with metrics: combined_score=0.0191, makespan_sec=362.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.6894, slo_violation_fraction=0.2353, perf_term=0.5000, slo_term=0.0382, evaluation_wall_sec=411.4159, is_baseline_run=1.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=362.0000
+2026-05-09 13:24:00,485 - openevolve.controller - INFO - Saved checkpoint at iteration 1 to runs/16/checkpoints/checkpoint_1
+2026-05-09 13:31:22,878 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 5, 'diversity': 5} (fitness: 0.019 -> 0.021)
+2026-05-09 13:31:22,879 - openevolve.database - INFO - New best program ffc3410d-e113-456d-9990-fe902db7e68b replaces 584afea5-adcb-49dc-992f-7596d2134f04 (combined_score: 0.0191 → 0.0207, +0.0015)
+2026-05-09 13:31:22,879 - openevolve.process_parallel - INFO - Iteration 2: Program ffc3410d-e113-456d-9990-fe902db7e68b (parent: 584afea5-adcb-49dc-992f-7596d2134f04) completed in 442.41s
+2026-05-09 13:31:22,880 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0207, makespan_sec=344.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.2285, slo_violation_fraction=0.2500, perf_term=0.5508, slo_term=0.0375, evaluation_wall_sec=390.7329, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:31:22,880 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 2: ffc3410d-e113-456d-9990-fe902db7e68b
+2026-05-09 13:31:22,880 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 2
+2026-05-09 13:31:22,880 - openevolve.database - INFO - Island Status:
+2026-05-09 13:31:22,880 - openevolve.database - INFO -  * Island 0: 2 programs, best=0.0207, avg=0.0199, diversity=0.00, gen=2 (best: ffc3410d-e113-456d-9990-fe902db7e68b)
+2026-05-09 13:31:22,880 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:31:22,880 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:31:22,880 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:31:22,880 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:31:22,880 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:31:22,889 - openevolve.database - INFO - Saved database with 3 programs to runs/16/checkpoints/checkpoint_2
+2026-05-09 13:31:22,890 - openevolve.controller - INFO - Saved best program at checkpoint 2 with metrics: combined_score=0.0207, makespan_sec=344.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.2285, slo_violation_fraction=0.2500, perf_term=0.5508, slo_term=0.0375, evaluation_wall_sec=390.7329, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:31:22,890 - openevolve.controller - INFO - Saved checkpoint at iteration 2 to runs/16/checkpoints/checkpoint_2
+2026-05-09 13:38:44,228 - openevolve.process_parallel - INFO - Iteration 3: Program 584f0713-b240-426c-aa1c-b0e4548d488f (parent: 584afea5-adcb-49dc-992f-7596d2134f04) completed in 441.35s
+2026-05-09 13:38:44,229 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0203, makespan_sec=347.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.5012, slo_violation_fraction=0.2500, perf_term=0.5422, slo_term=0.0375, evaluation_wall_sec=393.3694, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:38:44,229 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 3
+2026-05-09 13:38:44,229 - openevolve.database - INFO - Island Status:
+2026-05-09 13:38:44,229 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.0207, avg=0.0200, diversity=0.00, gen=3 (best: ffc3410d-e113-456d-9990-fe902db7e68b)
+2026-05-09 13:38:44,229 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:38:44,230 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:38:44,230 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:38:44,230 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:38:44,230 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:38:44,240 - openevolve.database - INFO - Saved database with 4 programs to runs/16/checkpoints/checkpoint_3
+2026-05-09 13:38:44,240 - openevolve.controller - INFO - Saved best program at checkpoint 3 with metrics: combined_score=0.0207, makespan_sec=344.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.2285, slo_violation_fraction=0.2500, perf_term=0.5508, slo_term=0.0375, evaluation_wall_sec=390.7329, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:38:44,244 - openevolve.controller - INFO - Saved checkpoint at iteration 3 to runs/16/checkpoints/checkpoint_3
+2026-05-09 13:46:15,332 - openevolve.process_parallel - INFO - Iteration 4: Program 81c538db-af15-4764-b7dd-24c6444a1e06 (parent: 584afea5-adcb-49dc-992f-7596d2134f04) completed in 451.10s
+2026-05-09 13:46:15,332 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0190, makespan_sec=354.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.4390, slo_violation_fraction=0.2727, perf_term=0.5223, slo_term=0.0364, evaluation_wall_sec=401.3181, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:46:15,332 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 4
+2026-05-09 13:46:15,333 - openevolve.database - INFO - Island Status:
+2026-05-09 13:46:15,333 - openevolve.database - INFO -  * Island 0: 4 programs, best=0.0207, avg=0.0198, diversity=0.00, gen=4 (best: ffc3410d-e113-456d-9990-fe902db7e68b)
+2026-05-09 13:46:15,333 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:46:15,333 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:46:15,334 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:46:15,334 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:46:15,335 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:46:15,344 - openevolve.database - INFO - Saved database with 5 programs to runs/16/checkpoints/checkpoint_4
+2026-05-09 13:46:15,345 - openevolve.controller - INFO - Saved best program at checkpoint 4 with metrics: combined_score=0.0207, makespan_sec=344.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.2285, slo_violation_fraction=0.2500, perf_term=0.5508, slo_term=0.0375, evaluation_wall_sec=390.7329, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:46:15,345 - openevolve.controller - INFO - Saved checkpoint at iteration 4 to runs/16/checkpoints/checkpoint_4
+2026-05-09 13:53:36,052 - openevolve.process_parallel - INFO - Iteration 5: Program 3dc46cb2-2130-45c8-bcf5-f2d23b6095f8 (parent: 584afea5-adcb-49dc-992f-7596d2134f04) completed in 440.72s
+2026-05-09 13:53:36,053 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0204, makespan_sec=346.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.3038, slo_violation_fraction=0.2500, perf_term=0.5451, slo_term=0.0375, evaluation_wall_sec=393.3068, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:53:36,053 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2026-05-09 13:53:36,053 - openevolve.database - INFO - Island Status:
+2026-05-09 13:53:36,053 - openevolve.database - INFO -  * Island 0: 5 programs, best=0.0207, avg=0.0199, diversity=0.00, gen=5 (best: ffc3410d-e113-456d-9990-fe902db7e68b)
+2026-05-09 13:53:36,054 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:53:36,054 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:53:36,054 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:53:36,054 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:53:36,054 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 13:53:36,066 - openevolve.database - INFO - Saved database with 6 programs to runs/16/checkpoints/checkpoint_5
+2026-05-09 13:53:36,066 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=0.0207, makespan_sec=344.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.2285, slo_violation_fraction=0.2500, perf_term=0.5508, slo_term=0.0375, evaluation_wall_sec=390.7329, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 13:53:36,066 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to runs/16/checkpoints/checkpoint_5
+2026-05-09 14:01:09,574 - openevolve.process_parallel - INFO - Iteration 6: Program f2e4df5f-8840-4e8c-b242-2a52de58ab49 (parent: 584afea5-adcb-49dc-992f-7596d2134f04) completed in 453.52s
+2026-05-09 14:01:09,574 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0187, makespan_sec=357.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.5496, slo_violation_fraction=0.2727, perf_term=0.5139, slo_term=0.0364, evaluation_wall_sec=404.2948, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 14:01:09,574 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 6
+2026-05-09 14:01:09,575 - openevolve.database - INFO - Island Status:
+2026-05-09 14:01:09,575 - openevolve.database - INFO -  * Island 0: 6 programs, best=0.0207, avg=0.0197, diversity=0.00, gen=6 (best: ffc3410d-e113-456d-9990-fe902db7e68b)
+2026-05-09 14:01:09,575 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 14:01:09,575 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 14:01:09,575 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 14:01:09,575 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 14:01:09,575 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 14:01:09,591 - openevolve.database - INFO - Saved database with 7 programs to runs/16/checkpoints/checkpoint_6
+2026-05-09 14:01:09,592 - openevolve.controller - INFO - Saved best program at checkpoint 6 with metrics: combined_score=0.0207, makespan_sec=344.0000, node_allocation_scalar=108.0000, dep_edge_count=9.0000, parallelism_delta_node_a=7.0000, parallelism_delta_node_b=0.0000, p95_worst_ms=4.2285, slo_violation_fraction=0.2500, perf_term=0.5508, slo_term=0.0375, evaluation_wall_sec=390.7329, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=362.0000, best_measured_makespan_sec=344.0000
+2026-05-09 14:01:09,592 - openevolve.controller - INFO - Saved checkpoint at iteration 6 to runs/16/checkpoints/checkpoint_6
+2026-05-09 14:02:42,627 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-09 14:02:42,629 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-09 14:02:42,630 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-09 14:02:42,630 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-09 14:02:42,631 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-09 14:02:42,764 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 14:02:42,906 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 14:02:43,060 - openevolve.controller - INFO - Force exit requested - terminating immediately

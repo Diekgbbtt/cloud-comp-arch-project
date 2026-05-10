@@ -1,0 +1,25 @@
+{
+  "id": "bcc39b2c-32fe-4848-bd16-a896c1d45a77",
+  "generation": 0,
+  "iteration": 0,
+  "current_iteration": 1,
+  "metrics": {
+    "combined_score": 0.5,
+    "run_id": 7.0,
+    "mcperf_warmup_returncode": 0.0,
+    "scheduler_returncode": 0.0,
+    "makespan_sec": 311.0,
+    "p95_worst_ms": 0.5498999999999999,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.5,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 360.0455250740051,
+    "is_baseline_run": 1.0,
+    "target_makespan_sec": 247.67,
+    "baseline_makespan_sec": 311.0,
+    "best_measured_makespan_sec": 311.0
+  },
+  "language": "python",
+  "timestamp": 1778248463.997896,
+  "saved_at": 1778248915.348474
+}

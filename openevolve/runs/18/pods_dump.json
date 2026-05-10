@@ -1,0 +1,377 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:28:37+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "de5d0f40-8a56-4bce-9bce-4cd76836b811",
+          "batch.kubernetes.io/job-name": "parsec-streamcluster",
+          "controller-uid": "de5d0f40-8a56-4bce-9bce-4cd76836b811",
+          "job-name": "parsec-streamcluster"
+        },
+        "name": "parsec-streamcluster-c67cd",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-a-8core-sjm1",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-a-8core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://971b45ecd45dbf6cf5e67b4ddbe3192741068a284d283c951be357e8c8d78a5c",
+            "image": "docker.io/anakli/cca:parsec_streamcluster",
+            "imageID": "docker.io/anakli/cca@sha256:7dac4c901e06198d999f1172eae9622ab7042064caadb32cc7b9fffa6d5f7402",
+            "lastState": {},
+            "name": "parsec-streamcluster",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://971b45ecd45dbf6cf5e67b4ddbe3192741068a284d283c951be357e8c8d78a5c",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:33:29+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:28:38+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-stt95",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:28:37+00:00"
+      }
+    },
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:28:38+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "c2191ae8-8927-48fc-9513-acad205f9368",
+          "batch.kubernetes.io/job-name": "parsec-freqmine",
+          "controller-uid": "c2191ae8-8927-48fc-9513-acad205f9368",
+          "job-name": "parsec-freqmine"
+        },
+        "name": "parsec-freqmine-j5hhj",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-b-4core-kds4",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-b-4core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://7628b5b1985b01b3ae1ba716d4f8510774a5c90845bdc3411fbf3172f9cf9b04",
+            "image": "docker.io/anakli/cca:parsec_freqmine",
+            "imageID": "docker.io/anakli/cca@sha256:c2a2f85fe345a655e84a629f04a1ca30482b9c0dd658bed193ed1d70a6395e5a",
+            "lastState": {},
+            "name": "parsec-freqmine",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://7628b5b1985b01b3ae1ba716d4f8510774a5c90845bdc3411fbf3172f9cf9b04",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:30:50+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:28:38+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-82wv9",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:28:38+00:00"
+      }
+    },
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:28:38+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "cc32d754-33f1-4049-8abe-c52fee49a207",
+          "batch.kubernetes.io/job-name": "parsec-canneal",
+          "controller-uid": "cc32d754-33f1-4049-8abe-c52fee49a207",
+          "job-name": "parsec-canneal"
+        },
+        "name": "parsec-canneal-m7jrm",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-b-4core-kds4",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-b-4core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://449fc0a91dcd03f050a14fc56f11a8e96542d6662e28a85cf6889cbd4748ffef",
+            "image": "docker.io/anakli/cca:parsec_canneal",
+            "imageID": "docker.io/anakli/cca@sha256:cb8c3ea7a7071c7802b84179c36f52673ee099bbc2efd90149611285fec24367",
+            "lastState": {},
+            "name": "parsec-canneal",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://449fc0a91dcd03f050a14fc56f11a8e96542d6662e28a85cf6889cbd4748ffef",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:32:31+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:30:52+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-h7lrl",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:30:51+00:00"
+      }
+    },
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:33:32+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "7ee814d6-663a-447c-b67b-a43a55c8cb3b",
+          "batch.kubernetes.io/job-name": "parsec-blackscholes",
+          "controller-uid": "7ee814d6-663a-447c-b67b-a43a55c8cb3b",
+          "job-name": "parsec-blackscholes"
+        },
+        "name": "parsec-blackscholes-57pjx",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-a-8core-sjm1",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-a-8core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://8422a0481e8b4c0e38daa692e012294c2e0cdf6d5f53edd7ea364da395d5f7e5",
+            "image": "docker.io/anakli/cca:parsec_blackscholes",
+            "imageID": "docker.io/anakli/cca@sha256:7a46dab25dbb692c7c9eaa7a6bf5edeb220e3209b2460a18d05be40533849dc3",
+            "lastState": {},
+            "name": "parsec-blackscholes",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://8422a0481e8b4c0e38daa692e012294c2e0cdf6d5f53edd7ea364da395d5f7e5",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:34:09+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:33:33+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-m2c7b",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:33:32+00:00"
+      }
+    },
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:34:13+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "835e5989-76dd-44da-b744-c780caeb5a91",
+          "batch.kubernetes.io/job-name": "parsec-radix",
+          "controller-uid": "835e5989-76dd-44da-b744-c780caeb5a91",
+          "job-name": "parsec-radix"
+        },
+        "name": "parsec-radix-jxsrh",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-a-8core-sjm1",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-a-8core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://d0ccc0edafda59ff6d76217f5270b974a74be3ebf379a747f34b4adc0885ff92",
+            "image": "docker.io/anakli/cca:splash2x_radix",
+            "imageID": "docker.io/anakli/cca@sha256:dbf0e10e749cf6544504ec0c90a206b8fcdc7fced6c23df536f5857f3f0ed319",
+            "lastState": {},
+            "name": "parsec-radix",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://d0ccc0edafda59ff6d76217f5270b974a74be3ebf379a747f34b4adc0885ff92",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:34:53+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:34:14+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-d5hg5",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:34:13+00:00"
+      }
+    },
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:32:34+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "95207a91-8578-4428-a519-025ac7b62796",
+          "batch.kubernetes.io/job-name": "parsec-barnes",
+          "controller-uid": "95207a91-8578-4428-a519-025ac7b62796",
+          "job-name": "parsec-barnes"
+        },
+        "name": "parsec-barnes-qh9rs",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-b-4core-kds4",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-b-4core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://013f814f544a3ddcd30dd5e099286a856e516eeeaba56cf6b8ce3803a564bfd5",
+            "image": "docker.io/anakli/cca:splash2x_barnes",
+            "imageID": "docker.io/anakli/cca@sha256:0f288c38563519b2c2d23b3ec860e3e1f94e10d1598a264d191fac6fe4348bdb",
+            "lastState": {},
+            "name": "parsec-barnes",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://013f814f544a3ddcd30dd5e099286a856e516eeeaba56cf6b8ce3803a564bfd5",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:33:23+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:32:34+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-t5w5b",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:32:34+00:00"
+      }
+    },
+    {
+      "metadata": {
+        "creationTimestamp": "2026-05-09T17:33:27+00:00",
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "359e459f-9f71-4490-b632-c6b41912abee",
+          "batch.kubernetes.io/job-name": "parsec-vips",
+          "controller-uid": "359e459f-9f71-4490-b632-c6b41912abee",
+          "job-name": "parsec-vips"
+        },
+        "name": "parsec-vips-5d56g",
+        "namespace": "default"
+      },
+      "spec": {
+        "nodeName": "node-b-4core-kds4",
+        "nodeSelector": {
+          "cca-project-nodetype": "node-b-4core"
+        },
+        "schedulerName": "default-scheduler"
+      },
+      "status": {
+        "containerStatuses": [
+          {
+            "containerID": "containerd://a74c518e01c2d4caaf173c3d9e509f82224e87aa875809e631d92dcf68a971d8",
+            "image": "docker.io/anakli/cca:parsec_vips",
+            "imageID": "docker.io/anakli/cca@sha256:5c719838bc3d4d72143f27ca60bb5fe6f5f5b60be53b3972e73350596aa03547",
+            "lastState": {},
+            "name": "parsec-vips",
+            "ready": false,
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://a74c518e01c2d4caaf173c3d9e509f82224e87aa875809e631d92dcf68a971d8",
+                "exitCode": 0,
+                "finishedAt": "2026-05-09T17:34:18+00:00",
+                "reason": "Completed",
+                "startedAt": "2026-05-09T17:33:27+00:00"
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-ch7hp",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "phase": "Succeeded",
+        "startTime": "2026-05-09T17:33:27+00:00"
+      }
+    }
+  ],
+  "kind": "List"
+}

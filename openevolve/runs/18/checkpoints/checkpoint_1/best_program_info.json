@@ -1,0 +1,28 @@
+{
+  "id": "5d35d1fb-2d38-47e1-a80e-9cc4cea6194d",
+  "generation": 0,
+  "iteration": 0,
+  "current_iteration": 1,
+  "metrics": {
+    "combined_score": 0.018548387096774196,
+    "scheduler_stdout": "",
+    "scheduler_stderr": "",
+    "makespan_sec": 333.0,
+    "node_allocation_scalar": 108.0,
+    "dep_edge_count": 9.0,
+    "parallelism_delta_node_a": 7.0,
+    "parallelism_delta_node_b": 0.0,
+    "p95_worst_ms": 3.8771999999999998,
+    "slo_violation_fraction": 0.25806451612903225,
+    "perf_term": 0.5,
+    "slo_term": 0.03709677419354839,
+    "evaluation_wall_sec": 383.1964499950409,
+    "is_baseline_run": 1.0,
+    "target_makespan_sec": 247.67,
+    "baseline_makespan_sec": 333.0,
+    "best_measured_makespan_sec": 333.0
+  },
+  "language": "python",
+  "timestamp": 1778343633.381357,
+  "saved_at": 1778344071.304567
+}

@@ -1,0 +1,11 @@
+2026-05-08 23:28:32,410 - openevolve.controller - INFO - Logging to runs/10/logs/openevolve_20260508_232832.log
+2026-05-08 23:28:32,441 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 23:28:32,470 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-Next-80B-A3B-Instruct-yiswang
+2026-05-08 23:28:32,470 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: Qwen/Qwen3-Next-80B-A3B-Instruct-yiswang (weight: 1.00)
+2026-05-08 23:28:32,477 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 23:28:32,478 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 23:28:32,478 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 23:28:32,481 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 23:28:32,481 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 23:28:32,481 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 23:28:32,481 - openevolve.controller - INFO - Adding initial program to database

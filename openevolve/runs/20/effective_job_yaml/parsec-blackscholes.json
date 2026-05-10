@@ -1,0 +1,46 @@
+[
+  {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+      "labels": {
+        "name": "parsec-blackscholes"
+      },
+      "name": "parsec-blackscholes"
+    },
+    "spec": {
+      "template": {
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "-c",
+                "taskset -c 1-3 ./run -a run -S parsec -p blackscholes -i native -n 2"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "image": "anakli/cca:parsec_blackscholes",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "parsec-blackscholes",
+              "resources": {
+                "limits": {
+                  "cpu": "4",
+                  "memory": "8Gi"
+                },
+                "requests": {
+                  "cpu": "2",
+                  "memory": "4Gi"
+                }
+              }
+            }
+          ],
+          "nodeSelector": {
+            "cca-project-nodetype": "node-a-8core"
+          },
+          "restartPolicy": "Never"
+        }
+      }
+    }
+  }
+]

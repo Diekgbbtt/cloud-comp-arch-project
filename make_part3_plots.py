@@ -22,16 +22,16 @@ COLORS = {
 
 # node/cores per job (from yamls)
 JOB_NODE = {
-    "blackscholes":  ("node-a-8core", list(range(1, 4))),   # taskset -c 1-3
-    "canneal":       ("node-a-8core", list(range(4, 8))),   # taskset -c 4-7
+    "blackscholes":  ("node-a-8core", list(range(1, 6))),   # taskset -c 1-5
+    "canneal":       ("node-b-4core", list(range(0, 3))),   # taskset -c 0-2
     "radix":         ("node-a-8core", [1]),                 # taskset -c 1
-    "streamcluster": ("node-a-8core", list(range(1, 8))),   # taskset -c 1-7
-    "barnes":        ("node-b-4core", list(range(0, 4))),
-    "freqmine":      ("node-b-4core", list(range(0, 4))),
-    "vips":          ("node-b-4core", list(range(0, 4))),
+    "streamcluster": ("node-a-8core", list(range(1, 6))),   # taskset -c 1-5
+    "barnes":        ("node-b-4core", list(range(0, 3))),   # taskset -c 0-2
+    "freqmine":      ("node-b-4core", list(range(0, 4))),   # taskset -c 0-3
+    "vips":          ("node-b-4core", list(range(0, 3))),   # taskset -c 0-2
 }
 
-NODEA_JOBS = ["streamcluster", "radix", "canneal", "blackscholes"]
+NODEA_JOBS = ["streamcluster", "radix", "blackscholes"]
 
 
 def load_run(r):
@@ -134,14 +134,58 @@ def plot_b(r, t0, jobs, out):
                    facecolors="#888888", edgecolor="black",
                    hatch="//", label="memcached")
 
+    # Build a map of core -> list of (job_name, start_ms, end_ms)
+    core_jobs = {}
     for job, (s, e) in jobs.items():
         node, cores = JOB_NODE[job]
-        x = (s - t0) / 1000.0
-        w = (e - s) / 1000.0
         for c in cores:
-            i = row_index[(node, c)]
-            ax.broken_barh([(x, w)], (i - 0.4, 0.8),
-                           facecolors=COLORS[job], edgecolor="black")
+            rc = (node, c)
+            if rc not in core_jobs:
+                core_jobs[rc] = []
+            core_jobs[rc].append((job, s, e))
+
+    # For each core with jobs, draw stacked bars for overlapping jobs
+    for (node, core), job_list in core_jobs.items():
+        i = row_index[(node, core)]
+        
+        # Build timeline: collect all start/end events
+        events = []
+        for job, s, e in job_list:
+            events.append((s, 'start', job))
+            events.append((e, 'end', job))
+        events.sort()
+        
+        # Process events to find time intervals with overlaps
+        active_jobs = []
+        prev_time = None
+        intervals = []  # list of (start_time, end_time, active_jobs_list)
+        
+        for time, event_type, job in events:
+            if prev_time is not None and time > prev_time and active_jobs:
+                intervals.append((prev_time, time, list(active_jobs)))
+            
+            if event_type == 'start':
+                active_jobs.append(job)
+            else:  # end
+                if job in active_jobs:
+                    active_jobs.remove(job)
+            
+            prev_time = time
+        
+        # Draw stacked bars for each interval
+        for start_ms, end_ms, active_list in intervals:
+            x = (start_ms - t0) / 1000.0
+            w = (end_ms - start_ms) / 1000.0
+            
+            # Sort jobs for consistent ordering
+            active_list.sort()
+            num_jobs = len(active_list)
+            height = 0.8 / num_jobs
+            
+            for idx, job in enumerate(active_list):
+                y_base = i - 0.4 + idx * height
+                ax.broken_barh([(x, w)], (y_base, height),
+                               facecolors=COLORS[job], edgecolor="black", linewidth=0.5)
 
     ax.set_yticks(range(len(rows)))
     ax.set_yticklabels(labels)

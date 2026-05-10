@@ -12,10 +12,10 @@ spec:
         name: parsec-canneal
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "taskset -c 4-7 ./run -a run -S parsec -p canneal -i native -n 4"]
+        args: ["-c", "taskset -c 2-7 ./run -a run -S parsec -p canneal -i native -n 6"]
         resources:
           requests:
-            cpu: "4"
+            cpu: "5"
             # memory: "1Gi"
           limits:
             cpu: "6"

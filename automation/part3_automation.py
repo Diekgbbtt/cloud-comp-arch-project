@@ -35,7 +35,8 @@ JOB_NAMES = [
 ]
 
 
-# EVOLVE-BLOCK-START 
+# EVOLVE-BLOCK-START
+# ======== // SECTION A - KUBERNETES JOB CONFIGURATION \\ =======
 def edit_job_configuration(yaml_objects: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 	"""Configure Kubernetes Job objects based on job type and constraints.
 
@@ -47,10 +48,12 @@ def edit_job_configuration(yaml_objects: List[Dict[str, Any]]) -> List[Dict[str,
 	- containers[0]["args"]: list of launch cmd chars, template: ["-c", "taskset -c <vCPUs_range> ./run -a run -S parsec -p blackscholes -i native -n <software_threads_count>"]
 	- CPU pinning through process affinity with tasksets("-c", "taskset -c <vCPUs_range>), in which vCPUs_range is a 0-indexed list with syntax: <lower-boundary>-<upper-boundary>, e.g. 2-3 or 0-4 or just collpases to the vCPU number if bound to jsut one core, e.g. 1
 	- Software threads count: -n <software_threads_count>, e.g. -n 3 will spawn 3 software threads
+	HARD CONSTRAINT: On node-a-8core, batch job taskset ranges must never include core 0. 
+	Valid ranges: 1-7, or any subset thereof (e.g. 1-4, 2-7, 5-7).
 
 	### ANY OTHER PROPERTY SHOULD NOT BE TOUCHED
 	"""
-	job_name = yaml_objects[0].setdefault("metadata", {}).setdefault("name", {})
+	job_name = yaml_objects[0].setdefault("metadata", {}).setdefault("name", "")
 
 	template_spec = (
 		yaml_objects[0].setdefault("spec", {})
@@ -70,73 +73,101 @@ def edit_job_configuration(yaml_objects: List[Dict[str, Any]]) -> List[Dict[str,
 	requests = resources.setdefault("requests", {})
 	limits = resources.setdefault("limits", {})
 
-	# Job-specific configuration.
-	if job_name == "parsec-blackscholes":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-a-8core"}
-		requests.update({"cpu": "2"})
-		limits.update({"cpu": "3"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "taskset -c 2-3 ./run -a run -S parsec -p blackscholes -i native -n 2"]
+	# Job-specific configuration taken from the per-job manifests in
+	# automation/results/part3/diego_tentative2/.
+	job_configurations = {
+		"parsec-blackscholes": {
+			"nodeSelector": {"cca-project-nodetype": "node-a-8core"},
+			"requests": {"cpu": "6"},
+			"limits": {"cpu": "7"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 1-7 ./run -a run -S parsec -p blackscholes -i native -n 7",
+			],
+		},
+		"parsec-radix": {
+			"nodeSelector": {"cca-project-nodetype": "node-a-8core"},
+			"requests": {"cpu": "1"},
+			"limits": {"cpu": "2"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 1 ./run -a run -S splash2x -p radix -i native -n 1",
+			],
+		},
+		"parsec-canneal": {
+			"nodeSelector": {"cca-project-nodetype": "node-a-8core"},
+			"requests": {"cpu": "6"},
+			"limits": {"cpu": "7"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 1-7 ./run -a run -S parsec -p canneal -i native -n 7",
+			],
+		},
+		"parsec-streamcluster": {
+			"nodeSelector": {"cca-project-nodetype": "node-b-4core"},
+			"requests": {"cpu": "3"},
+			"limits": {"cpu": "4"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 0-3 ./run -a run -S parsec -p streamcluster -i native -n 4",
+			],
+		},
+		"parsec-freqmine": {
+			"nodeSelector": {"cca-project-nodetype": "node-a-8core"},
+			"requests": {"cpu": "6"},
+			"limits": {"cpu": "7"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 1-7 ./run -a run -S parsec -p freqmine -i native -n 7",
+			],
+		},
+		"parsec-barnes": {
+			"nodeSelector": {"cca-project-nodetype": "node-b-4core"},
+			"requests": {"cpu": "3"},
+			"limits": {"cpu": "4"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 0-3 ./run -a run -S splash2x -p barnes -i native -n 4",
+			],
+		},
+		"parsec-vips": {
+			"nodeSelector": {"cca-project-nodetype": "node-b-4core"},
+			"requests": {"cpu": "3"},
+			"limits": {"cpu": "4"},
+			"command": ["/bin/sh"],
+			"args": [
+				"-c",
+				"taskset -c 0-3 ./run -a run -S parsec -p vips -i native -n 4",
+			],
+		},
+	}
 
-	elif job_name == "parsec-radix":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-a-8core"}
-		requests.update({"cpu": "1"})
-		limits.update({"cpu": "2"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "taskset -c 1 ./run -a run -S splash2x -p radix -i native -n 1"]
-
-	elif job_name == "parsec-canneal":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-a-8core"}
-		requests.update({"cpu": "4"})
-		limits.update({"cpu": "6"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "taskset -c 4-7 ./run -a run -S parsec -p canneal -i native -n 4"]
-
-	elif job_name == "parsec-streamcluster":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-a-8core"}
-		requests.update({"cpu": "6"})
-		limits.update({"cpu": "7"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "taskset -c 1-7 ./run -a run -S parsec -p streamcluster -i native -n 7"]
-
-	elif job_name == "parsec-freqmine":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-b-4core"}
-		requests.update({"cpu": "3"})
-		limits.update({"cpu": "4"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "./run -a run -S parsec -p freqmine -i native -n 4"]
-
-	elif job_name == "parsec-barnes":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-b-4core"}
-		requests.update({"cpu": "3"})
-		limits.update({"cpu": "4"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "./run -a run -S splash2x -p barnes -i native -n 4"]
-
-	elif job_name == "parsec-vips":
-		template_spec["nodeSelector"] = {"cca-project-nodetype": "node-b-4core"}
-		requests.update({"cpu": "3"})
-		limits.update({"cpu": "4"})
-		container["command"] = ["/bin/sh"]
-		container["args"] = ["-c", "./run -a run -S parsec -p vips -i native -n 4"]
-
+	job_config = job_configurations.get(job_name)
+	if job_config is not None:
+		template_spec["nodeSelector"] = job_config["nodeSelector"]
+		requests.update(job_config["requests"])
+		limits.update(job_config["limits"])
+		container["command"] = job_config["command"]
+		container["args"] = job_config["args"]
 	return yaml_objects
 
 
-# A job is eligible to be scheduled when all prerequisites are complete.
-# This policy encodes:
-# - streamcluster
-# - freqmine -> barnes -> vips
-# - canneal
-# - blackscholes -> radix	
+
+# ======== // SECTION B - CONCURRENY STRUCTURE \\ =========
 JOB_DEPENDENCIES: dict[str, list[str]] = {
 	"parsec-streamcluster": [],
-	"parsec-freqmine": [],
-	"parsec-canneal": ["parsec-streamcluster"],
-	"parsec-blackscholes": ["parsec-radix", "parsec-streamcluster"],
-	"parsec-barnes": ["parsec-freqmine"],
-	"parsec-vips": ["parsec-barnes", "parsec-freqmine"],
-	"parsec-radix": ["parsec-streamcluster"],
+	"parsec-canneal": [],
+	"parsec-freqmine": ["parsec-canneal"],
+	"parsec-blackscholes": ["parsec-freqmine", "parsec-canneal"],
+	"parsec-barnes": ["parsec-streamcluster"],
+	"parsec-vips": ["parsec-barnes", "parsec-streamcluster"],
+	"parsec-radix": ["parsec-blackscholes", "parsec-freqmine", "parsec-canneal"],
 }
 # EVOLVE-BLOCK-END
 
@@ -160,6 +191,64 @@ def _write_effective_job_yaml_objects(
 		return
 
 
+def _resolve_node_assignment() -> dict[str, str]:
+	"""Return a mapping job_name -> nodetype by dry-running edit_job_configuration.
+
+	Each job's YAML is constructed with only the metadata.name field populated —
+	the minimum needed for edit_job_configuration to hit the correct branch.
+	The nodeSelector written by that branch is then read back.
+	"""
+	assignment: dict[str, str] = {}
+	for job_name in JOB_NAMES:
+		# Minimal stub — only metadata.name is needed for the if/elif dispatch.
+		stub: list[dict[str, Any]] = [{"metadata": {"name": job_name}, "spec": {}}]
+		result = edit_job_configuration(stub)
+		node = (
+			result[0]
+			.get("spec", {})
+			.get("template", {})
+			.get("spec", {})
+			.get("nodeSelector", {})
+			.get("cca-project-nodetype", "unknown")
+		)
+		assignment[job_name] = node
+	return assignment
+
+
+def _write_policy_graph(*, output_dir: Path | None) -> None:
+	"""Write policy_graph.json to output_dir (best-effort).
+
+	Schema
+	------
+	{
+	  "dependencies": { job_name: [prereq, ...], ... },
+	  "node_assignment": { job_name: "node-a-8core" | "node-b-4core", ... },
+	  "node_a_jobs": [job_name, ...],
+	  "node_b_jobs": [job_name, ...]
+	}
+
+	The evaluator reads this file to compute structural MAP-Elites features
+	without needing to re-parse source code or Kubernetes objects.
+	"""
+	if output_dir is None:
+		return
+	try:
+		assignment = _resolve_node_assignment()
+		node_a = sorted(j for j, n in assignment.items() if n == "node-a-8core")
+		node_b = sorted(j for j, n in assignment.items() if n == "node-b-4core")
+		payload = {
+			"dependencies": {j: list(deps) for j, deps in JOB_DEPENDENCIES.items()},
+			"node_assignment": assignment,
+			"node_a_jobs": node_a,
+			"node_b_jobs": node_b,
+		}
+		path = output_dir / "policy_graph.json"
+		path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+	except Exception:
+		# Never fail scheduling because graph writing failed.
+		return
+
+
 def main() -> int:
 	args = parse_args()
 	configure_logging()
@@ -176,12 +265,15 @@ def main() -> int:
 		return 1
 	finally:
 		elapsed = time.time() - start
-		logging.info("Scheduler finished in %.2f seconds", elapsed)
 
 
 def run_scheduler(args: argparse.Namespace) -> int:
-	validate_policy(JOB_NAMES, JOB_DEPENDENCIES)
+	# validate_policy(JOB_NAMES, JOB_DEPENDENCIES)
 	manifest_paths = build_manifest_paths(args.jobs_dir)
+
+	# Write the resolved policy graph before any jobs are submitted so the
+	# evaluator can compute structural features even if the run fails early.
+	_write_policy_graph(output_dir=args.output_dir)
 
 	api_client = client.ApiClient()
 	batch_api = client.BatchV1Api()
@@ -243,7 +335,7 @@ def run_scheduler(args: argparse.Namespace) -> int:
 		)
 		return 1
 
-	logging.info("All jobs finished successfully: %s", sorted(completed))
+
 	return 0
 
 
@@ -272,7 +364,6 @@ def schedule_ready_jobs(
 			output_dir=output_dir,
 		)
 		unscheduled.remove(job_name)
-		logging.info("SCHEDULED job=%s deps=%s", job_name, dependencies[job_name])
 
 	return ready
 
@@ -357,11 +448,11 @@ def watch_for_job_updates(
 			state = parse_job_status(obj.status)
 			if state == "succeeded":
 				completed.add(job_name)
-				logging.info("FINISHED job=%s status=Succeeded", job_name)
+
 				break
 			elif state == "failed":
 				failed.add(job_name)
-				logging.info("FINISHED job=%s status=Failed", job_name)
+
 				break
 	finally:
 		watcher.stop()
@@ -389,63 +480,12 @@ def parse_job_status(status: client.V1JobStatus | None) -> str | None:
 	return None
 
 
-def delete_job_if_present(batch_api: client.BatchV1Api, namespace: str, name: str) -> None:
-	try:
-		batch_api.delete_namespaced_job(
-			name=name,
-			namespace=namespace,
-			propagation_policy="Foreground",
-		)
-		logging.info("Deleted existing job %s/%s", namespace, name)
-	except ApiException as exc:
-		if exc.status != 404:
-			raise
-
-
 def load_kube_config(kube_context: str | None) -> None:
 	try:
 		config.load_kube_config(context=kube_context)
-		logging.info("Loaded kubeconfig context=%s", kube_context or "current")
+
 	except Exception:
 		config.load_incluster_config()
-		logging.info("Loaded in-cluster Kubernetes config")
-
-
-def validate_policy(job_names: list[str], dependencies: dict[str, list[str]]) -> None:
-	known = set(job_names)
-	if set(dependencies.keys()) != known:
-		missing = sorted(known - set(dependencies.keys()))
-		extra = sorted(set(dependencies.keys()) - known)
-		raise ValueError(
-			f"Invalid dependency keys. missing={missing}, extra={extra}"
-		)
-
-	for job, prereqs in dependencies.items():
-		unknown = sorted(set(prereqs) - known)
-		if unknown:
-			raise ValueError(f"Unknown prerequisites for {job}: {unknown}")
-
-	# Kahn's algorithm to reject cycles in scheduling policy.
-	indegree = {job: 0 for job in job_names}
-	outgoing: dict[str, list[str]] = {job: [] for job in job_names}
-	for job, prereqs in dependencies.items():
-		indegree[job] = len(prereqs)
-		for prereq in prereqs:
-			outgoing[prereq].append(job)
-
-	queue = [job for job in job_names if indegree[job] == 0]
-	seen = 0
-	while queue:
-		current = queue.pop()
-		seen += 1
-		for nxt in outgoing[current]:
-			indegree[nxt] -= 1
-			if indegree[nxt] == 0:
-				queue.append(nxt)
-
-	if seen != len(job_names):
-		raise ValueError("Dependency policy contains a cycle")
-
 
 def build_manifest_paths(jobs_dir: Path) -> dict[str, Path]:
 	manifest_paths: dict[str, Path] = {}

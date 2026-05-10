@@ -1,0 +1,57 @@
+2026-05-09 11:55:28,660 - openevolve.controller - INFO - Logging to runs/14/logs/openevolve_20260509_115528.log
+2026-05-09 11:55:28,689 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-09 11:55:28,718 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-09 11:55:28,718 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-09 11:55:28,725 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-09 11:55:28,726 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-09 11:55:28,726 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-09 11:55:28,735 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-09 11:55:28,735 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-09 11:55:28,735 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-09 11:55:28,736 - openevolve.database - INFO - Loaded database metadata with last_iteration=6
+2026-05-09 11:55:28,736 - openevolve.database - INFO - Loaded feature_stats for 2 dimensions
+2026-05-09 11:55:28,741 - openevolve.database - INFO - Reconstructed islands: restored 4 programs to islands
+2026-05-09 11:55:28,741 - openevolve.database - INFO - Loaded database with 7 programs from runs/13/checkpoints/checkpoint_6
+2026-05-09 11:55:28,741 - openevolve.database - INFO - Island Status:
+2026-05-09 11:55:28,741 - openevolve.database - INFO -  * Island 0: 4 programs, best=0.0211, avg=0.0188, diversity=0.00, gen=3 (best: 0202f3a7-d5f8-451f-ba02-b6dbe660264b)
+2026-05-09 11:55:28,741 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,741 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,741 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,741 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,741 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,741 - openevolve.controller - INFO - Loading checkpoint from runs/13/checkpoints/checkpoint_6
+2026-05-09 11:55:28,741 - openevolve.database - INFO - Loaded database metadata with last_iteration=6
+2026-05-09 11:55:28,741 - openevolve.database - INFO - Loaded feature_stats for 2 dimensions
+2026-05-09 11:55:28,744 - openevolve.database - INFO - Reconstructed islands: restored 4 programs to islands
+2026-05-09 11:55:28,744 - openevolve.database - INFO - Loaded database with 7 programs from runs/13/checkpoints/checkpoint_6
+2026-05-09 11:55:28,744 - openevolve.database - INFO - Island Status:
+2026-05-09 11:55:28,744 - openevolve.database - INFO -  * Island 0: 4 programs, best=0.0211, avg=0.0188, diversity=0.00, gen=3 (best: 0202f3a7-d5f8-451f-ba02-b6dbe660264b)
+2026-05-09 11:55:28,744 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,744 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,744 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,744 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,744 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,744 - openevolve.controller - INFO - Checkpoint loaded successfully (iteration 6)
+2026-05-09 11:55:28,744 - openevolve.controller - INFO - Resuming from checkpoint at iteration 7
+2026-05-09 11:55:28,744 - openevolve.controller - INFO - Skipping initial program addition (resuming from iteration 7 with 7 existing programs)
+2026-05-09 11:55:28,750 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-09 11:55:28,751 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-09 11:55:28,751 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-09 11:55:28,751 - openevolve.controller - INFO - Using island-based evolution with 6 islands
+2026-05-09 11:55:28,751 - openevolve.database - INFO - Island Status:
+2026-05-09 11:55:28,751 - openevolve.database - INFO -  * Island 0: 4 programs, best=0.0211, avg=0.0188, diversity=0.00, gen=3 (best: 0202f3a7-d5f8-451f-ba02-b6dbe660264b)
+2026-05-09 11:55:28,751 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,751 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,751 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,751 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,751 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:55:28,751 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 7 for 10 iterations (total: 17)
+2026-05-09 11:55:28,758 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-09 11:55:46,296 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-09 11:55:46,297 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-09 11:55:46,298 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-09 11:55:46,299 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-09 11:55:46,299 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-09 11:55:46,463 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 11:55:46,625 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 11:55:46,784 - openevolve.controller - INFO - Force exit requested - terminating immediately

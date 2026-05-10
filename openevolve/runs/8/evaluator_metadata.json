@@ -1,0 +1,106 @@
+{
+  "baseline_makespan_sec": 321.0,
+  "best_measured_makespan_sec": 277.0,
+  "target_makespan_sec": 247.67,
+  "iterations": [
+    {
+      "makespan_sec": 321.0,
+      "combined_score": 0.5,
+      "perf_term": 0.5,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.5585,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 369.85147500038147
+    },
+    {
+      "makespan_sec": 294.0,
+      "combined_score": 0.02516550522648084,
+      "perf_term": 0.5219512195121951,
+      "slo_term": 0.048214285714285716,
+      "p95_worst_ms": 1.5144000000000002,
+      "slo_violation_fraction": 0.03571428571428571,
+      "evaluation_wall_sec": 344.7780737876892
+    },
+    {
+      "makespan_sec": 286.0,
+      "combined_score": 0.6134404469189645,
+      "perf_term": 0.6134404469189645,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.44630000000000003,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 333.2531909942627
+    },
+    {
+      "makespan_sec": 284.0,
+      "combined_score": 0.6200752276263268,
+      "perf_term": 0.6200752276263268,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.4263,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 333.72999811172485
+    },
+    {
+      "makespan_sec": 283.0,
+      "combined_score": 0.623393461761565,
+      "perf_term": 0.623393461761565,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.4323,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 331.88048005104065
+    },
+    {
+      "makespan_sec": 295.0,
+      "combined_score": 0.5836713431921221,
+      "perf_term": 0.5836713431921221,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.4674,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 344.04319405555725
+    },
+    {
+      "makespan_sec": 311.0,
+      "combined_score": 0.0256637385611985,
+      "perf_term": 0.5316060130533974,
+      "slo_term": 0.048275862068965524,
+      "p95_worst_ms": 1.2905,
+      "slo_violation_fraction": 0.034482758620689655,
+      "evaluation_wall_sec": 359.4411389827728
+    },
+    {
+      "makespan_sec": 293.0,
+      "combined_score": 0.590268162725619,
+      "perf_term": 0.590268162725619,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.5498,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 338.85575103759766
+    },
+    {
+      "makespan_sec": 280.0,
+      "combined_score": 0.6333478177198407,
+      "perf_term": 0.6333478177198407,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.4565,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 327.79912304878235
+    },
+    {
+      "makespan_sec": 282.0,
+      "combined_score": 0.030175014827188484,
+      "perf_term": 0.6267118464108377,
+      "slo_term": 0.048148148148148155,
+      "p95_worst_ms": 1.5032999999999999,
+      "slo_violation_fraction": 0.037037037037037035,
+      "evaluation_wall_sec": 330.7838408946991
+    },
+    {
+      "makespan_sec": 277.0,
+      "combined_score": 0.6432950393433132,
+      "perf_term": 0.6432950393433132,
+      "slo_term": 1.0,
+      "p95_worst_ms": 0.4284,
+      "slo_violation_fraction": 0.0,
+      "evaluation_wall_sec": 325.5764832496643
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "0202f3a7-d5f8-451f-ba02-b6dbe660264b",
+  "generation": 2,
+  "iteration": 5,
+  "current_iteration": 6,
+  "metrics": {
+    "combined_score": 0.021061885703766436,
+    "scheduler_cmd": "/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpo5d75e9p.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13",
+    "scheduler_stdout": "",
+    "scheduler_stderr": "2026-05-09 11:36:37,631 INFO Loaded kubeconfig context=current\n2026-05-09 11:36:37,941 INFO SCHEDULED job=parsec-streamcluster deps=[]\n2026-05-09 11:36:37,999 INFO SCHEDULED job=parsec-canneal deps=[]\n2026-05-09 11:38:03,199 INFO FINISHED job=parsec-canneal status=Succeeded\n2026-05-09 11:38:03,266 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']\n2026-05-09 11:38:48,322 INFO FINISHED job=parsec-barnes status=Succeeded\n2026-05-09 11:38:48,388 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']\n2026-05-09 11:39:17,351 INFO FINISHED job=parsec-streamcluster status=Succeeded\n2026-05-09 11:39:17,416 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']\n2026-05-09 11:39:45,449 INFO FINISHED job=parsec-vips status=Succeeded\n2026-05-09 11:40:50,635 INFO FINISHED job=parsec-freqmine status=Succeeded\n2026-05-09 11:40:50,811 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']\n2026-05-09 11:41:23,818 INFO FINISHED job=parsec-blackscholes status=Succeeded\n2026-05-09 11:41:23,879 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']\n2026-05-09 11:42:06,862 INFO FINISHED job=parsec-radix status=Succeeded\n2026-05-09 11:42:06,863 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']\n2026-05-09 11:42:06,863 INFO Scheduler finished in 329.23 seconds\n",
+    "makespan_sec": 326.0,
+    "node_allocation_scalar": 92.0,
+    "dep_edge_count": 9.0,
+    "parallelism_delta_node_a": -15.0,
+    "parallelism_delta_node_b": -12.0,
+    "p95_worst_ms": 4.2572,
+    "slo_violation_fraction": 0.25806451612903225,
+    "perf_term": 0.5677551798406604,
+    "slo_term": 0.03709677419354839,
+    "evaluation_wall_sec": 374.41028022766113,
+    "is_baseline_run": 0.0,
+    "target_makespan_sec": 247.67,
+    "baseline_makespan_sec": 349.0,
+    "best_measured_makespan_sec": 326.0
+  },
+  "language": "python",
+  "timestamp": 1778319766.492177,
+  "saved_at": 1778320271.122387
+}

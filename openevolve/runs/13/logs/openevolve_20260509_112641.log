@@ -1,0 +1,204 @@
+2026-05-09 11:26:41,396 - openevolve.controller - INFO - Logging to runs/13/logs/openevolve_20260509_112641.log
+2026-05-09 11:26:41,425 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-09 11:26:41,454 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-09 11:26:41,454 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-09 11:26:41,461 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-09 11:26:41,461 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-09 11:26:41,461 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-09 11:26:41,464 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-09 11:26:41,464 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-09 11:26:41,464 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-09 11:26:41,464 - openevolve.database - INFO - Loaded database metadata with last_iteration=3
+2026-05-09 11:26:41,464 - openevolve.database - INFO - Loaded feature_stats for 2 dimensions
+2026-05-09 11:26:41,467 - openevolve.database - INFO - Reconstructed islands: restored 3 programs to islands
+2026-05-09 11:26:41,467 - openevolve.database - INFO - Loaded database with 4 programs from runs/11/checkpoints/checkpoint_3
+2026-05-09 11:26:41,467 - openevolve.database - INFO - Island Status:
+2026-05-09 11:26:41,467 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.0177, avg=0.0172, diversity=0.00, gen=0
+2026-05-09 11:26:41,467 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,467 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,467 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,467 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,467 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,467 - openevolve.controller - INFO - Loading checkpoint from runs/11/checkpoints/checkpoint_3
+2026-05-09 11:26:41,468 - openevolve.database - INFO - Loaded database metadata with last_iteration=3
+2026-05-09 11:26:41,468 - openevolve.database - INFO - Loaded feature_stats for 2 dimensions
+2026-05-09 11:26:41,468 - openevolve.database - INFO - Reconstructed islands: restored 3 programs to islands
+2026-05-09 11:26:41,468 - openevolve.database - INFO - Loaded database with 4 programs from runs/11/checkpoints/checkpoint_3
+2026-05-09 11:26:41,469 - openevolve.database - INFO - Island Status:
+2026-05-09 11:26:41,469 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.0177, avg=0.0172, diversity=0.00, gen=0
+2026-05-09 11:26:41,469 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,469 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,469 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,469 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,469 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,469 - openevolve.controller - INFO - Checkpoint loaded successfully (iteration 3)
+2026-05-09 11:26:41,469 - openevolve.controller - INFO - Resuming from checkpoint at iteration 4
+2026-05-09 11:26:41,469 - openevolve.controller - INFO - Skipping initial program addition (resuming from iteration 4 with 4 existing programs)
+2026-05-09 11:26:41,475 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-09 11:26:41,476 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-09 11:26:41,476 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-09 11:26:41,476 - openevolve.controller - INFO - Using island-based evolution with 6 islands
+2026-05-09 11:26:41,476 - openevolve.database - INFO - Island Status:
+2026-05-09 11:26:41,476 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.0177, avg=0.0172, diversity=0.00, gen=0
+2026-05-09 11:26:41,476 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,476 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,476 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,476 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,476 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:26:41,476 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 4 for 10 iterations (total: 14)
+2026-05-09 11:26:41,480 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-09 11:34:43,047 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'node_allocation_scalar': 5, 'dep_edge_count': 5} (fitness: 0.018 -> 0.019)
+2026-05-09 11:34:43,048 - openevolve.database - INFO - New best program 5babe931-0d8e-49dd-8c93-49e8b972e91b replaces 4e905fb3-bf09-496c-ad10-58ea185d7f88 (combined_score: 0.0177 → 0.0189, +0.0012)
+2026-05-09 11:34:43,048 - openevolve.process_parallel - INFO - Iteration 4: Program 5babe931-0d8e-49dd-8c93-49e8b972e91b (parent: 1e511910-b9ef-49b5-b0ce-889c2502916f) completed in 481.21s
+2026-05-09 11:34:43,049 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0189, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpt7ojq9t5.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13, scheduler_stdout=, scheduler_stderr=2026-05-09 11:28:09,988 INFO Loaded kubeconfig context=current
+2026-05-09 11:28:10,369 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 11:28:10,425 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 11:29:37,174 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 11:29:37,243 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 11:30:23,318 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 11:30:23,386 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 11:31:01,853 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 11:31:01,921 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 11:31:22,529 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 11:32:41,173 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 11:32:41,350 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:33:17,319 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 11:33:17,381 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:34:03,384 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 11:34:03,386 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 11:34:03,387 INFO Scheduler finished in 353.40 seconds
+, makespan_sec=349.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=4.0370, slo_violation_fraction=0.2424, perf_term=0.5000, slo_term=0.0379, evaluation_wall_sec=398.6429, is_baseline_run=1.0000, target_makespan_sec=247.6700, baseline_makespan_sec=349.0000, best_measured_makespan_sec=349.0000
+2026-05-09 11:34:43,050 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 4: 5babe931-0d8e-49dd-8c93-49e8b972e91b
+2026-05-09 11:34:43,050 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 4
+2026-05-09 11:34:43,050 - openevolve.database - INFO - Island Status:
+2026-05-09 11:34:43,050 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.0189, avg=0.0176, diversity=0.00, gen=1 (best: 5babe931-0d8e-49dd-8c93-49e8b972e91b)
+2026-05-09 11:34:43,050 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:34:43,050 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:34:43,050 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:34:43,050 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:34:43,050 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:34:43,064 - openevolve.database - INFO - Saved database with 5 programs to runs/13/checkpoints/checkpoint_4
+2026-05-09 11:34:43,065 - openevolve.controller - INFO - Saved best program at checkpoint 4 with metrics: combined_score=0.0189, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpt7ojq9t5.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13, scheduler_stdout=, scheduler_stderr=2026-05-09 11:28:09,988 INFO Loaded kubeconfig context=current
+2026-05-09 11:28:10,369 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 11:28:10,425 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 11:29:37,174 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 11:29:37,243 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 11:30:23,318 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 11:30:23,386 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 11:31:01,853 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 11:31:01,921 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 11:31:22,529 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 11:32:41,173 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 11:32:41,350 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:33:17,319 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 11:33:17,381 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:34:03,384 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 11:34:03,386 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 11:34:03,387 INFO Scheduler finished in 353.40 seconds
+, makespan_sec=349.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=4.0370, slo_violation_fraction=0.2424, perf_term=0.5000, slo_term=0.0379, evaluation_wall_sec=398.6429, is_baseline_run=1.0000, target_makespan_sec=247.6700, baseline_makespan_sec=349.0000, best_measured_makespan_sec=349.0000
+2026-05-09 11:34:43,065 - openevolve.controller - INFO - Saved checkpoint at iteration 4 to runs/13/checkpoints/checkpoint_4
+2026-05-09 11:42:46,507 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'node_allocation_scalar': 5, 'dep_edge_count': 5} (fitness: 0.019 -> 0.021)
+2026-05-09 11:42:46,508 - openevolve.database - INFO - New best program 0202f3a7-d5f8-451f-ba02-b6dbe660264b replaces 5babe931-0d8e-49dd-8c93-49e8b972e91b (combined_score: 0.0189 → 0.0211, +0.0021)
+2026-05-09 11:42:46,508 - openevolve.process_parallel - INFO - Iteration 5: Program 0202f3a7-d5f8-451f-ba02-b6dbe660264b (parent: 1e511910-b9ef-49b5-b0ce-889c2502916f) completed in 483.45s
+2026-05-09 11:42:46,508 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0211, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpo5d75e9p.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13, scheduler_stdout=, scheduler_stderr=2026-05-09 11:36:37,631 INFO Loaded kubeconfig context=current
+2026-05-09 11:36:37,941 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 11:36:37,999 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 11:38:03,199 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 11:38:03,266 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 11:38:48,322 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 11:38:48,388 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 11:39:17,351 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 11:39:17,416 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 11:39:45,449 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 11:40:50,635 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 11:40:50,811 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:41:23,818 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 11:41:23,879 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:42:06,862 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 11:42:06,863 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 11:42:06,863 INFO Scheduler finished in 329.23 seconds
+, makespan_sec=326.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=4.2572, slo_violation_fraction=0.2581, perf_term=0.5678, slo_term=0.0371, evaluation_wall_sec=374.4103, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=349.0000, best_measured_makespan_sec=326.0000
+2026-05-09 11:42:46,509 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 5: 0202f3a7-d5f8-451f-ba02-b6dbe660264b
+2026-05-09 11:42:46,509 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2026-05-09 11:42:46,510 - openevolve.database - INFO - Island Status:
+2026-05-09 11:42:46,510 - openevolve.database - INFO -  * Island 0: 3 programs, best=0.0211, avg=0.0183, diversity=0.00, gen=2 (best: 0202f3a7-d5f8-451f-ba02-b6dbe660264b)
+2026-05-09 11:42:46,510 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:42:46,510 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:42:46,510 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:42:46,510 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:42:46,510 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:42:46,523 - openevolve.database - INFO - Saved database with 6 programs to runs/13/checkpoints/checkpoint_5
+2026-05-09 11:42:46,524 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=0.0211, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpo5d75e9p.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13, scheduler_stdout=, scheduler_stderr=2026-05-09 11:36:37,631 INFO Loaded kubeconfig context=current
+2026-05-09 11:36:37,941 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 11:36:37,999 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 11:38:03,199 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 11:38:03,266 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 11:38:48,322 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 11:38:48,388 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 11:39:17,351 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 11:39:17,416 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 11:39:45,449 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 11:40:50,635 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 11:40:50,811 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:41:23,818 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 11:41:23,879 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:42:06,862 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 11:42:06,863 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 11:42:06,863 INFO Scheduler finished in 329.23 seconds
+, makespan_sec=326.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=4.2572, slo_violation_fraction=0.2581, perf_term=0.5678, slo_term=0.0371, evaluation_wall_sec=374.4103, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=349.0000, best_measured_makespan_sec=326.0000
+2026-05-09 11:42:46,524 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to runs/13/checkpoints/checkpoint_5
+2026-05-09 11:51:11,110 - openevolve.process_parallel - INFO - Iteration 6: Program c79e9af7-d66e-42e6-9711-63baa08f21f8 (parent: 1e511910-b9ef-49b5-b0ce-889c2502916f) completed in 504.60s
+2026-05-09 11:51:11,111 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0204, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpkukp96w5.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13, scheduler_stdout=, scheduler_stderr=2026-05-09 11:44:57,822 INFO Loaded kubeconfig context=current
+2026-05-09 11:44:58,134 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 11:44:58,194 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 11:46:24,193 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 11:46:24,259 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 11:47:09,310 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 11:47:09,378 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 11:47:41,851 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 11:47:41,920 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 11:48:02,460 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 11:49:16,170 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 11:49:16,354 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:49:49,313 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 11:49:49,377 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:50:32,391 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 11:50:32,392 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 11:50:32,393 INFO Scheduler finished in 334.57 seconds
+, makespan_sec=332.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=3.7581, slo_violation_fraction=0.2581, perf_term=0.5498, slo_term=0.0371, evaluation_wall_sec=379.0906, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=349.0000, best_measured_makespan_sec=326.0000
+2026-05-09 11:51:11,112 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 6
+2026-05-09 11:51:11,112 - openevolve.database - INFO - Island Status:
+2026-05-09 11:51:11,112 - openevolve.database - INFO -  * Island 0: 4 programs, best=0.0211, avg=0.0188, diversity=0.00, gen=3 (best: 0202f3a7-d5f8-451f-ba02-b6dbe660264b)
+2026-05-09 11:51:11,112 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:51:11,112 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:51:11,112 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:51:11,112 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:51:11,112 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 11:51:11,121 - openevolve.database - INFO - Saved database with 7 programs to runs/13/checkpoints/checkpoint_6
+2026-05-09 11:51:11,122 - openevolve.controller - INFO - Saved best program at checkpoint 6 with metrics: combined_score=0.0211, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpo5d75e9p.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/13, scheduler_stdout=, scheduler_stderr=2026-05-09 11:36:37,631 INFO Loaded kubeconfig context=current
+2026-05-09 11:36:37,941 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 11:36:37,999 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 11:38:03,199 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 11:38:03,266 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 11:38:48,322 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 11:38:48,388 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 11:39:17,351 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 11:39:17,416 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 11:39:45,449 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 11:40:50,635 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 11:40:50,811 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:41:23,818 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 11:41:23,879 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 11:42:06,862 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 11:42:06,863 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 11:42:06,863 INFO Scheduler finished in 329.23 seconds
+, makespan_sec=326.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=4.2572, slo_violation_fraction=0.2581, perf_term=0.5678, slo_term=0.0371, evaluation_wall_sec=374.4103, is_baseline_run=0.0000, target_makespan_sec=247.6700, baseline_makespan_sec=349.0000, best_measured_makespan_sec=326.0000
+2026-05-09 11:51:11,122 - openevolve.controller - INFO - Saved checkpoint at iteration 6 to runs/13/checkpoints/checkpoint_6
+2026-05-09 11:52:08,406 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-09 11:52:08,409 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-09 11:52:08,414 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-09 11:52:08,414 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-09 11:52:08,415 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-09 11:52:08,552 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 11:52:08,723 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 11:52:08,876 - openevolve.controller - INFO - Force exit requested - terminating immediately

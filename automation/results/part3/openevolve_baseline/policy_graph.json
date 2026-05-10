@@ -1,0 +1,45 @@
+{
+  "dependencies": {
+    "parsec-barnes": [
+      "parsec-streamcluster"
+    ],
+    "parsec-blackscholes": [
+      "parsec-freqmine",
+      "parsec-canneal"
+    ],
+    "parsec-canneal": [],
+    "parsec-freqmine": [
+      "parsec-canneal"
+    ],
+    "parsec-radix": [
+      "parsec-blackscholes",
+      "parsec-freqmine",
+      "parsec-canneal"
+    ],
+    "parsec-streamcluster": [],
+    "parsec-vips": [
+      "parsec-barnes",
+      "parsec-streamcluster"
+    ]
+  },
+  "node_a_jobs": [
+    "parsec-blackscholes",
+    "parsec-canneal",
+    "parsec-freqmine",
+    "parsec-radix"
+  ],
+  "node_assignment": {
+    "parsec-barnes": "node-b-4core",
+    "parsec-blackscholes": "node-a-8core",
+    "parsec-canneal": "node-a-8core",
+    "parsec-freqmine": "node-a-8core",
+    "parsec-radix": "node-a-8core",
+    "parsec-streamcluster": "node-b-4core",
+    "parsec-vips": "node-b-4core"
+  },
+  "node_b_jobs": [
+    "parsec-barnes",
+    "parsec-streamcluster",
+    "parsec-vips"
+  ]
+}

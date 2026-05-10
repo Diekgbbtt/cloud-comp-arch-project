@@ -1,0 +1,44 @@
+[
+  {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+      "labels": {
+        "name": "parsec-barnes"
+      },
+      "name": "parsec-barnes"
+    },
+    "spec": {
+      "template": {
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "-c",
+                "taskset -c 0-1 ./run -a run -S splash2x -p barnes -i native -n 2"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "image": "anakli/cca:splash2x_barnes",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "parsec-barnes",
+              "resources": {
+                "limits": {
+                  "cpu": "2"
+                },
+                "requests": {
+                  "cpu": "1"
+                }
+              }
+            }
+          ],
+          "nodeSelector": {
+            "cca-project-nodetype": "node-b-4core"
+          },
+          "restartPolicy": "Never"
+        }
+      }
+    }
+  }
+]

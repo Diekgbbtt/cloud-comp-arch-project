@@ -1,0 +1,16 @@
+{
+  "baseline_makespan_sec": 352.0,
+  "best_measured_makespan_sec": 352.0,
+  "target_makespan_sec": 247.67,
+  "iterations": [
+    {
+      "makespan_sec": 352.0,
+      "combined_score": 0.01893939393939394,
+      "perf_term": 0.5,
+      "slo_term": 0.03787878787878788,
+      "p95_worst_ms": 4.413399999999999,
+      "slo_violation_fraction": 0.24242424242424243,
+      "evaluation_wall_sec": 398.4296441078186
+    }
+  ]
+}

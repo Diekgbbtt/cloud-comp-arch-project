@@ -1,0 +1,26 @@
+{
+  "id": "8482fc64-fc54-457d-bcac-3d059175aa86",
+  "generation": 0,
+  "iteration": 0,
+  "current_iteration": 1,
+  "metrics": {
+    "combined_score": 0.5,
+    "makespan_sec": 325.0,
+    "node_allocation_scalar": 92.0,
+    "dep_edge_count": 4.0,
+    "parallelism_delta_node_a": -15.0,
+    "parallelism_delta_node_b": -12.0,
+    "p95_worst_ms": 0.8802000000000001,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.5,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 373.9423179626465,
+    "is_baseline_run": 1.0,
+    "target_makespan_sec": 247.67,
+    "baseline_makespan_sec": 325.0,
+    "best_measured_makespan_sec": 325.0
+  },
+  "language": "python",
+  "timestamp": 1778365465.635545,
+  "saved_at": 1778365938.831508
+}
