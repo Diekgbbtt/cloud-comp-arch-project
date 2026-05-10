@@ -1,6 +1,7 @@
 from datetime import datetime
 from enum import Enum
 import urllib.parse
+import logging
 
 
 LOG_STRING = "{timestamp} {event} {job_name} {args}"
@@ -23,17 +24,22 @@ class SchedulerLogger:
 
         self.file_name = f"log{start_date}.txt"
         self.file = open(self.file_name, "w")
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(logging.INFO)
+        handler = logging.StreamHandler()
+        handler.setFormatter(logging.Formatter("%(levelname)s %(message)s"))
+        self.logger.addHandler(handler)
         self._log("start", Job.SCHEDULER)
 
     def _log(self, event: str, job_name: Job, args: str = "") -> None:
         if isinstance(job_name, str):
-            self.file.write(
-            LOG_STRING.format(timestamp=datetime.now().isoformat(), event=event, job_name=job_name,
-                              args=args).strip() + "\n")
+            log = LOG_STRING.format(timestamp=datetime.now().isoformat(), event=event, job_name=job_name, args=args).strip()
+            self.file.write(log + "\n")
+            self.logger.info(log)
         else:
-            self.file.write(
-                LOG_STRING.format(timestamp=datetime.now().isoformat(), event=event, job_name=job_name.value,
-                                args=args).strip() + "\n")
+            log = LOG_STRING.format(timestamp=datetime.now().isoformat(), event=event, job_name=job_name.value, args=args).strip()
+            self.file.write(log +"\n")
+            self.logger.info(log)
 
     def job_start(self, job: Job, initial_cores: list[str], initial_threads: int) -> None:
         assert job != Job.SCHEDULER, "You don't have to log SCHEDULER here"

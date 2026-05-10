@@ -23,6 +23,17 @@ sudo nano /etc/memcached.conf
 sudo systemctl restart memcached
 *Set taskaffinity of memcached*
 sudo taskset -a -cp 0 4125
+*Send files through scp*
+gcloud compute scp --ssh-key-file ~/.ssh/cloud-computing2 ~/CCA/cloud-comp-arch-project/part4/scheduler.py ubuntu@memcache-server-jzkb:~ --tunnel-through-iap --zone=europe-west1-b
+*Install docker https://docs.docker.com/engine/install/ubuntu/*
+sudo usermod -a -G docker ubuntu
+newgrp docker
+*Create venv*
+python3 -m venv ./venv
+source ./venv/bin/activate
+python3 -m pip install docker psutil
+*Send files back*
+gcloud compute scp --ssh-key-file ~/.ssh/cloud-computing2 ubuntu@memcache-server-jzkb:~/log20260510_023434.txt ~/CCA/cloud-comp-arch-project/part4/results/4_2/  --tunnel-through-iap --zone=europe-west1-b
 
 *SSH to client machines and install*
 sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
@@ -42,21 +53,7 @@ make
 --noload -T 8 -C 8 -D 4 -Q 1000 -c 8 -t 1800 \
 --qps_interval 15 --qps_min 5000 --qps_max 110000
 
-*On memcache server TO DO*
-- Check if Docker is installer
-- Check if python is installed
-- pip install docker psutil
-- copy necessary files to vm
-
-*Record CPU utilization*
-*Correct with mpstat*
+*Part 4.1 record CPU utilization*
 for i in {1..70}; do echo -n "$(date +%s%3N),"; mpstat -P 0 1 1 | awk '$2 ~ /[0-9]+/ && $1 == "Average:" {sum += 100 - $12} END {printf "%.1f\n", sum}'; sleep 0.1; done > cpu_core_usage.txt
 
 for i in {1..60}; do echo -n "$(date +%s%3N),"; mpstat -P 0-2 1 1 | awk '$2 ~ /[0-9]+/ && $1 == "Average:" {sum += 100 - $12} END {printf "%.1f\n", sum}'; sleep 0.1; done > cpu_core_usage.txt
-*Old ones*
-for i in {1..75}; do echo -n "$(date +%s%3N),"; mpstat -P ALL 1 1 | awk '/^[0-9]/ && $3 ~ /[0-9]+/ {sum += 100 - $12} END {printf "%.1f\n", sum}'; sleep 0.1; done > cpu_total_usage.txt
-
-for i in {1..75}; do echo -n "$(date +%s%3N),"; mpstat -P 0 1 1 | awk '/^[0-9]/ && $3=="0" {printf "%.1f\n", 100 - $12}'; sleep 0.1; done > cpu_core0_usage.txt
-
-for i in {1..75}; do echo -n "$(date +%s%3N),"; mpstat -P 0 1 1 | awk '$2 == "0" && $1 == "Average:" {printf "%.1f\n", 100 - $12}'; sleep 0.1; done > cpu_core0_usage.txt
-
