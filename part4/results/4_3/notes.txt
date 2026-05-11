@@ -1,0 +1,20 @@
+scheduler_v2 with streamcluster first
+no memcached load: 466.28 seconds = 7 minutes
+run 1 13 minutes
+
+scheduler_v2 with optimized scheduled
+still jumping from 0 to 1 at the beggining
+it also jumps sometimes between 2 to 3
+run 1 15.6 minutes
+
+scheduler_v2 with even more conservative treshholds
+jumping only happened twice between 0 to 1
+run 1 16 minutes GOOD
+
+scheduler_v2 with 0.5 intervals and flags
+run 1 934.03 seconds log20260511_181106
+
+part 4.4
+
+with 8 second interval we get 5 violations, 4%
+with 11 second interval we get 2/75, 1/77, 2/73 violations

@@ -31,7 +31,7 @@ JOBS = {
     "freqmine": {
         "image": "anakli/cca:parsec_freqmine",
         "run": "./run -a run -S parsec -p freqmine -i native -n ",
-        "threads": 3,
+        "threads": 1,
     },
     "radix": {
         "image": "anakli/cca:splash2x_radix",
@@ -41,7 +41,7 @@ JOBS = {
     "streamcluster": {
         "image": "anakli/cca:parsec_streamcluster",
         "run": "./run -a run -S parsec -p streamcluster -i native -n ",
-        "threads": 1,
+        "threads": 3,
     },
     "vips": {
         "image": "anakli/cca:parsec_vips",
@@ -50,7 +50,7 @@ JOBS = {
     },
 }
 
-SCHEDULE = ["streamcluster", "canneal", "blackscholes", "vips", "barnes", "radix", "freqmine"]
+SCHEDULE = ["freqmine", "canneal", "barnes", "vips", "blackscholes", "radix", "streamcluster"]
 
 
 @dataclass
@@ -87,8 +87,13 @@ def main() -> int:
     run_jobs()
     end_time = time.time()
     logger.custom_event("scheduler_end", str(int(end_time * 1000)))
-    logger.logger.info(f"Total scheduler runtime: {end_time - start_time:.2f} seconds")
+    logger.custom_event("scheduler_runtime", f"{end_time - start_time:.2f}")
     logger.end()
+    # Before finishing set memcached affinity back to all cores
+    subprocess.run(
+        ["sudo", "taskset", "-a", "-cp", ",".join([str(i) for i in [0, 1, 2]]), str(memcached_pid)],
+        check=True,
+    )
 
 
 def manage_resources(memcached_pid: int) -> None:
@@ -97,8 +102,14 @@ def manage_resources(memcached_pid: int) -> None:
     memcached_process = psutil.Process(memcached_pid)
     memcached_process.cpu_percent(interval=None)
 
+
+    increased_recently = 0
+    decreased_recently = 0
+    recently_changed_value = 3
+
+
     while len(completed | failed) < len(JOBS):
-        time.sleep(1)
+        time.sleep(0.5)
         util = memcached_process.cpu_percent(interval=None)
         new_cores = current_memcached_cores
         pause_cores: list[int] = []
@@ -106,23 +117,28 @@ def manage_resources(memcached_pid: int) -> None:
 
         # 1. Evaluate State Machine
         if current_memcached_cores == 1:
-            if util > 85:
+            if util > 80 and decreased_recently <= 0:
                 new_cores = 2
                 pause_cores = [1]
+                increased_recently = recently_changed_value
         elif current_memcached_cores == 2:
-            if util > 170:
+            if util > 160 and decreased_recently <= 0:
                 new_cores = 3
                 pause_cores = [2]
-            elif util < 125:
+                increased_recently = recently_changed_value
+            elif util < 95 and increased_recently <= 0:
                 new_cores = 1
                 resume_cores = [1]
+                decreased_recently = recently_changed_value
         elif current_memcached_cores == 3:
-            if util < 150:
+            if util < 125 and decreased_recently <= 0:
                 new_cores = 1
                 resume_cores = [1, 2]
-            elif util < 200:
+                decreased_recently = recently_changed_value
+            elif util < 170 and increased_recently <= 0:
                 new_cores = 2
                 resume_cores = [2]
+                decreased_recently = recently_changed_value
 
         # 2. Apply Changes if State Switched
         if new_cores != current_memcached_cores:
@@ -148,6 +164,7 @@ def manage_resources(memcached_pid: int) -> None:
                 capture_output=True,
             )
             logger.update_cores("memcached", mem_affinity)
+            logger.logger.info(f"CPU utilization that triggered change: {util:.2f}%")
 
             # Update active Docker containers
             with active_jobs_lock:
@@ -193,9 +210,14 @@ def manage_resources(memcached_pid: int) -> None:
 
                 current_memcached_cores = new_cores
 
-            time.sleep(0.5)  # Small delay to allow system to stabilize after changes
+            time.sleep(0.25)  # Delay to allow system to stabilize after changes
             memcached_process.cpu_percent(interval=None) # Reset CPU percent measurement after state change
-
+        else:
+            # Reset flags if changes this iteration
+            increased_recently = max(0, increased_recently - 1)
+            decreased_recently = max(0, decreased_recently - 1)
+            if increased_recently > 0 or decreased_recently > 0:
+                logger.logger.info(f"CPU utilization: {util:.2f}%")
 
 def run_jobs():
     schedule_available_jobs()
@@ -258,6 +280,9 @@ def assign_free_core(core):
         return  # All jobs completed
     # Get job with smallest (busiest) core
     active_jobs_list = [job for job in active_jobs.values() if job.threads > 1]
+    if not active_jobs_list:
+        logger.logger.info(f"core {core} is idle and available for scheduling")
+        return  # No multi-threaded jobs running, so core is effectively idle
     target = min(active_jobs_list, key=lambda job: job.primary_core)
     if target.paused:
         # If target is paused, assign core as primary and unpause
