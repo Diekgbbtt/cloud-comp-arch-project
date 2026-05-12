@@ -24,7 +24,7 @@ sudo systemctl restart memcached
 *Set taskaffinity of memcached*
 sudo taskset -a -cp 0 4125
 *Send files through scp*
-gcloud compute scp --ssh-key-file ~/.ssh/cloud-computing2 ~/CCA/cloud-comp-arch-project/part4/scheduler_v2.py ubuntu@memcache-server-hz2b:~ --tunnel-through-iap --zone=europe-west1-b
+gcloud compute scp --ssh-key-file ~/.ssh/cloud-computing2 ~/CCA/cloud-comp-arch-project/part4/scheduler_v2.py ubuntu@memcache-server-s56q:~ --tunnel-through-iap --zone=europe-west1-b
 *Install docker https://docs.docker.com/engine/install/ubuntu/*
 *Run commands to get permissions*
 sudo usermod -a -G docker ubuntu
@@ -36,7 +36,7 @@ python3 -m venv ./venv
 source ./venv/bin/activate
 python3 -m pip install docker psutil
 *Send files back*
-gcloud compute scp --ssh-key-file ~/.ssh/cloud-computing2 ubuntu@memcache-server-hz2b:~/log20260511_191122.txt ~/CCA/cloud-comp-arch-project/part4/results/4_2/  --tunnel-through-iap --zone=europe-west1-b
+gcloud compute scp --ssh-key-file ~/.ssh/cloud-computing2 ubuntu@memcache-server-s56q:~/log20260512_161443.txt ~/CCA/cloud-comp-arch-project/part4/results/4_4/ --tunnel-through-iap --zone=europe-west1-b
 
 *SSH to client machines and install*
 sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources

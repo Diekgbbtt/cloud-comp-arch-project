@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 from enum import Enum
 import urllib.parse
 import logging
@@ -76,3 +77,23 @@ class SchedulerLogger:
 
     def get_file_name(self):
         return self.file_name
+
+
+class CpuLogger:
+    def __init__(self) -> None:
+        start_date = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.file_name = f"log{start_date}_cpu.txt"
+        self.file = open(self.file_name, "w")
+        self.file.write("iso_timestamp,unix_timestamp_ms,cpu_0,cpu_1,cpu_2,cpu_3\n")
+
+    def log(self, message: str) -> None:
+        iso_timestamp = datetime.now().isoformat()
+        unix_timestamp_ms = int(time.time() * 1000)
+        line = f"{iso_timestamp},{unix_timestamp_ms},{message}"
+        self.file.write(line + "\n")
+        self.file.flush()
+        print(line)
+
+    def end(self) -> None:
+        self.file.flush()
+        self.file.close()

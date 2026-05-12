@@ -10,7 +10,7 @@ import psutil
 from dataclasses import dataclass
 from collections import deque
 from queue import Queue
-from scheduler_logger import SchedulerLogger
+from scheduler_logger import SchedulerLogger, CpuLogger
 
 JOBS = {
     "barnes": {
@@ -72,6 +72,7 @@ failed: set[str] = set()
 event_queue = Queue()
 job_queue = deque(SCHEDULE)
 logger = SchedulerLogger()
+logger_cpu = CpuLogger()
 client = docker.from_env()
 
 
@@ -84,11 +85,15 @@ def main() -> int:
     resource_thread = threading.Thread(target=manage_resources, args=(memcached_pid,), daemon=True)
     resource_thread.start()
 
+    cpu_logger_thread = threading.Thread(target=log_cpu_utilization, daemon=True)
+    cpu_logger_thread.start()
+
     run_jobs()
     end_time = time.time()
     logger.custom_event("scheduler_end", str(int(end_time * 1000)))
     logger.custom_event("scheduler_runtime", f"{end_time - start_time:.2f}")
     logger.end()
+    logger_cpu.end()
     # Before finishing set memcached affinity back to all cores
     subprocess.run(
         ["sudo", "taskset", "-a", "-cp", ",".join([str(i) for i in [0, 1, 2]]), str(memcached_pid)],
@@ -164,7 +169,6 @@ def manage_resources(memcached_pid: int) -> None:
                 capture_output=True,
             )
             logger.update_cores("memcached", mem_affinity)
-            logger.logger.info(f"CPU utilization that triggered change: {util:.2f}%")
 
             # Update active Docker containers
             with active_jobs_lock:
@@ -216,8 +220,6 @@ def manage_resources(memcached_pid: int) -> None:
             # Reset flags if changes this iteration
             increased_recently = max(0, increased_recently - 1)
             decreased_recently = max(0, decreased_recently - 1)
-            if increased_recently > 0 or decreased_recently > 0:
-                logger.logger.info(f"CPU utilization: {util:.2f}%")
 
 def run_jobs():
     schedule_available_jobs()
@@ -344,6 +346,13 @@ def allowed_cores_for_jobs():
 
 def cpuset_str(cores: set[int]) -> str:
     return ",".join(str(core) for core in sorted(cores))
+
+def log_cpu_utilization():
+    util = psutil.cpu_percent(interval=None, percpu=True)
+    while True:
+        time.sleep(1)
+        util = psutil.cpu_percent(interval=None, percpu=True)
+        logger_cpu.log(",".join(f"{u:.2f}" for u in util))
 
 
 if __name__ == "__main__":
