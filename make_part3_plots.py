@@ -5,6 +5,8 @@ from datetime import datetime, timezone
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
+from automation.mcperf import load_memcache_p95_intervals
+
 BASE = "automation/results/part3/diego_tentative2"
 FMT = "%Y-%m-%dT%H:%M:%SZ"
 RUNS = [1, 2, 4]
@@ -47,19 +49,7 @@ def load_run(r):
         short = n.replace("parsec-", "")
         jobs[short] = (int(s.timestamp() * 1000), int(e.timestamp() * 1000))
     t0 = min(s for s, _ in jobs.values())
-    lats = []
-    with open(f"{BASE}/results_{r}_memcache_latencies.txt") as f:
-        for line in f:
-            p = line.split()
-            if not p or p[0] != "read":
-                continue
-            try:
-                p95 = float(p[12])
-                ts_s = int(p[-2])
-                ts_e = int(p[-1])
-            except Exception:
-                continue
-            lats.append((ts_s, ts_e, p95))
+    lats = load_memcache_p95_intervals(f"{BASE}/results_{r}_memcache_latencies.txt")
     return t0, jobs, lats
 
 
