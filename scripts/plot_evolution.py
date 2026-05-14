@@ -20,8 +20,9 @@ import os
 from datetime import datetime
 from typing import List, Optional
 
-import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import matplotlib.patheffects as pe
+from matplotlib.ticker import MultipleLocator
 
 
 def parse_timestamp(obj: dict, path: str) -> float:
@@ -103,6 +104,7 @@ def main(programs_dir: str, out_prefix: str = None) -> None:
     # Build readable timestamps and values
     times_dt = [datetime.fromtimestamp(r[1]) for r in rows]
     times_str = [dt.isoformat(sep=" ") for dt in times_dt]
+    times_hms = [dt.strftime("%H:%M:%S") for dt in times_dt]
     makespans = [r[2] for r in rows]
     slo_terms = [r[3] for r in rows]
 
@@ -120,15 +122,39 @@ def main(programs_dir: str, out_prefix: str = None) -> None:
     max_ticks = 12
     step = max(1, len(x) // max_ticks)
     tick_positions = x[::step]
-    tick_labels = [times_str[i] for i in tick_positions]
+    tick_labels = [times_hms[i] for i in tick_positions]
 
     # Makespan plot (index-based x-axis, timestamps as labels)
     plt.figure(figsize=(10, 4))
-    plt.plot(x, makespans, marker="o", linestyle="-", color="tab:blue")
-    plt.title("Makespan over sequence (timestamps labeled)")
+    ax = plt.gca()
+    max_x = max(x) if x else 0
+
+    ax.plot(x, makespans, marker="o", linestyle="-", color="tab:blue", zorder=3)
+    plt.title("Makespan evolution")
     plt.ylabel("makespan_sec")
-    plt.xlabel("program index (timestamp shown on ticks)")
+    plt.ylim(bottom=300)
+    ax.yaxis.set_major_locator(MultipleLocator(50))
+
+    # Shadowed dotted horizontal lines at each y-axis interval (e.g., 350, 400, ...)
+    ax.set_axisbelow(True)
+    ax.grid(
+        True,
+        axis="y",
+        which="major",
+        linestyle=":",
+        linewidth=1.0,
+        color="0.4",
+        alpha=0.35,
+    )
+    try:
+        for gl in ax.get_ygridlines():
+            gl.set_path_effects([pe.Stroke(linewidth=2.0, foreground=(0, 0, 0, 0.18)), pe.Normal()])
+    except Exception:
+        # If path-effects aren't available in the runtime Matplotlib, keep plain dotted grid.
+        pass
+    plt.xlabel("programs evaluation timestamps")
     plt.xticks(tick_positions, tick_labels, rotation=30, ha="right")
+    ax.set_xlim(-0.5, max_x + 0.5)
     out_makespan = (out_prefix + "_makespan.png") if out_prefix else "makespan_evolution.png"
     plt.tight_layout()
     plt.savefig(out_makespan, dpi=150)
@@ -140,9 +166,10 @@ def main(programs_dir: str, out_prefix: str = None) -> None:
     plt.step(x, slo_binary, where="post", color="tab:red")
     plt.scatter(x, slo_binary, color="tab:red")
     plt.ylim(-0.1, 1.1)
-    plt.yticks([0, 1], ["no violation (slo_term==1)", "violation"])
-    plt.title("SLO violation over sequence (timestamps labeled)")
-    plt.xlabel("program index (timestamp shown on ticks)")
+    plt.ylabel("violation")
+    plt.yticks([0, 1], ["0", "1"])
+    plt.title("SLO violation evolution")
+    plt.xlabel("programs evaluation timestamps")
     plt.xticks(tick_positions, tick_labels, rotation=30, ha="right")
     out_slo = (out_prefix + "_slo.png") if out_prefix else "slo_evolution.png"
     plt.tight_layout()

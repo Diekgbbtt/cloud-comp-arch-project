@@ -5,6 +5,7 @@ import sys
 from datetime import datetime, timezone
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
+from matplotlib.ticker import MultipleLocator
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "automation/results/part3/diego_tentative2"
 RUNS = [int(x) for x in sys.argv[2:]] if len(sys.argv) > 2 else [1, 2, 4]
@@ -22,16 +23,16 @@ COLORS = {
 
 # node/cores per job (from yamls)
 JOB_NODE = {
-    "blackscholes":  ("node-a-8core", list(range(1, 6))),   # taskset -c 1-5
-    "canneal":       ("node-b-4core", list(range(0, 3))),   # taskset -c 0-2
-    "radix":         ("node-a-8core", [1]),                 # taskset -c 1
-    "streamcluster": ("node-a-8core", list(range(1, 6))),   # taskset -c 1-5
-    "barnes":        ("node-b-4core", list(range(0, 3))),   # taskset -c 0-2
-    "freqmine":      ("node-b-4core", list(range(0, 4))),   # taskset -c 0-3
-    "vips":          ("node-b-4core", list(range(0, 3))),   # taskset -c 0-2
+    "blackscholes":  ("node-a-8core", list(range(1, 4))),   # 0-based cores
+    "canneal":       ("node-a-8core", list(range(4, 8))),   # 0-based cores
+    "radix":         ("node-a-8core", [1]),                 # 0-based cores
+    "streamcluster": ("node-a-8core", list(range(1, 8))),   # 0-based cores (use cores 1-7)
+    "barnes":        ("node-b-4core", list(range(0, 4))),   # 0-based cores
+    "freqmine":      ("node-b-4core", list(range(0, 4))),   # 0-based cores (use cores 0-3)
+    "vips":          ("node-b-4core", list(range(0, 4))),   # 0-based cores
 }
 
-NODEA_JOBS = ["streamcluster", "radix", "blackscholes"]
+NODEA_JOBS = ["streamcluster", "canneal", "radix", "blackscholes"]
 
 
 def load_run(r):
@@ -49,7 +50,7 @@ def load_run(r):
         jobs[short] = (int(s.timestamp() * 1000), int(e.timestamp() * 1000))
     t0 = min(s for s, _ in jobs.values())
     lats = []
-    with open(f"{BASE}/results_{r}_memcache_latencies.txt") as f:
+    with open(f"{BASE}/results_{r}_memcache_latencies_trimmed.txt") as f:
         for line in f:
             p = line.split()
             if not p or p[0] != "read":
@@ -110,6 +111,7 @@ def plot_a(r, t0, jobs, lats, out):
                        linestyle="--", alpha=0.6, linewidth=1)
     ax_bot.set_xlabel("Time since first container start [s]")
     ax_bot.set_ylabel("memcached p95 latency [µs]")
+    ax_bot.yaxis.set_major_locator(MultipleLocator(100))
     ax_bot.legend(loc="upper right", fontsize=8)
     ax_bot.grid(axis="y", linestyle=":", alpha=0.5)
 
