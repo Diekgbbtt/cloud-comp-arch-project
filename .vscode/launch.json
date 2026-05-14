@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug evaluator.py (direct)",
+      "type": "python",
+      "request": "launch",
+      "python": "${workspaceFolder}/automation/.venv/bin/python3.13",
+      "program": "openevolve/evaluator.py",
+      "args": [
+        "${workspaceFolder}/automation/part3_automation.py"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Debug part3_automation.py (direct)",
+      "type": "python",
+      "request": "launch",
+      "python": "${workspaceFolder}/automation/.venv/bin/python3.13",
+      "program": "automation/part3_automation.py",
+      "args": [],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Debug part3_automation.py (direct)",
+      "type": "python",
+      "request": "launch",
+      "python": "${workspaceFolder}/automation/.venv/bin/python3.13",
+      "program": "automation/part3_automation_sample_oe_optimization.py",
+      "args": [],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ]
+}

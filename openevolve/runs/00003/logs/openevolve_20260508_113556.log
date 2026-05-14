@@ -1,0 +1,41 @@
+2026-05-08 11:35:56,042 - openevolve.controller - INFO - Logging to runs/00003/logs/openevolve_20260508_113556.log
+2026-05-08 11:35:56,076 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 11:35:56,106 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-08 11:35:56,106 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-08 11:35:56,112 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 11:35:56,113 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 11:35:56,113 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 11:35:56,115 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 11:35:56,115 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 11:35:56,115 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 11:35:56,115 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 11:41:39,833 - openevolve.evaluator - INFO - Evaluated program 49204748-dc28-40ee-b6db-d4c9d8460fad in 343.72s: combined_score=0.4606, run_id=30.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=290.0000, p95_worst_ms=0.9438, slo_violation_fraction=0.0000, perf_term=0.4606, slo_term=1.0000, evaluation_wall_sec=337.5177
+2026-05-08 11:41:39,835 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-08 11:41:39,852 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-08 11:41:39,853 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-08 11:41:39,854 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-08 11:41:39,854 - openevolve.controller - INFO - Using island-based evolution with 10 islands
+2026-05-08 11:41:39,854 - openevolve.database - INFO - Island Status:
+2026-05-08 11:41:39,854 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.4606, avg=0.4606, diversity=0.00, gen=0 (best: 49204748-dc28-40ee-b6db-d4c9d8460fad)
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 4: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 5: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 6: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 7: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 8: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.database - INFO -    Island 9: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 11:41:39,854 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-08 11:41:39,861 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-08 11:41:58,104 - openevolve.process_parallel - WARNING - Iteration 1 error: LLM generation failed: Error code: 401 - {'detail': 'Invalid access token'}
+2026-05-08 11:42:14,025 - openevolve.process_parallel - WARNING - Iteration 2 error: LLM generation failed: Error code: 401 - {'detail': 'Invalid access token'}
+2026-05-08 11:42:29,915 - openevolve.process_parallel - WARNING - Iteration 3 error: LLM generation failed: Error code: 401 - {'detail': 'Invalid access token'}
+2026-05-08 11:42:45,893 - openevolve.process_parallel - WARNING - Iteration 4 error: LLM generation failed: Error code: 401 - {'detail': 'Invalid access token'}
+2026-05-08 11:42:51,821 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-08 11:42:51,821 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-08 11:42:51,822 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-08 11:42:51,823 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-08 11:42:51,823 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-08 11:42:52,014 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 11:42:52,571 - openevolve.controller - INFO - Force exit requested - terminating immediately

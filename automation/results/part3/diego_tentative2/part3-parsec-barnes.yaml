@@ -12,13 +12,13 @@ spec:
         name: parsec-barnes
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "./run -a run -S splash2x -p barnes -i native -n 4"]
+        args: ["-c", "taskset -c 0-1 ./run -a run -S splash2x -p barnes -i native -n 2"]
         resources:
           requests:
-            cpu: "3"
+            cpu: "1"
             # memory: "1Gi"
           limits:
-            cpu: "4"
+            cpu: "2"
             # memory: "30Gi"
       restartPolicy: Never
       nodeSelector:

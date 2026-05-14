@@ -1,0 +1,34 @@
+{
+  "baseline_makespan_sec": 326.0,
+  "best_measured_makespan_sec": 322.0,
+  "target_makespan_sec": 247.67,
+  "iterations": [
+    {
+      "makespan_sec": 326.0,
+      "combined_score": 0.019166666666666665,
+      "perf_term": 0.5,
+      "slo_term": 0.03833333333333333,
+      "p95_worst_ms": 4.1706,
+      "slo_violation_fraction": 0.23333333333333334,
+      "evaluation_wall_sec": 374.7346770763397
+    },
+    {
+      "makespan_sec": 322.0,
+      "combined_score": 0.01963982755173331,
+      "perf_term": 0.5123433274365212,
+      "slo_term": 0.03833333333333333,
+      "p95_worst_ms": 3.8124000000000002,
+      "slo_violation_fraction": 0.23333333333333334,
+      "evaluation_wall_sec": 371.06690192222595
+    },
+    {
+      "makespan_sec": 340.0,
+      "combined_score": 0.017176897833382814,
+      "perf_term": 0.4580506088902083,
+      "slo_term": 0.037500000000000006,
+      "p95_worst_ms": 4.2732,
+      "slo_violation_fraction": 0.25,
+      "evaluation_wall_sec": 387.7941448688507
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "84898905-6a43-4d45-ae67-ccce5fd79c88",
+  "generation": 0,
+  "iteration": 0,
+  "current_iteration": 5,
+  "metrics": {
+    "combined_score": 0.5027097245620801,
+    "run_id": 19.0,
+    "baseline_makespan_sec": 247.67,
+    "mcperf_warmup_returncode": 0.0,
+    "scheduler_returncode": 0.0,
+    "makespan_sec": 245.0,
+    "p95_worst_ms": 0.4689,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.5027097245620801,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 293.10273814201355
+  },
+  "language": "python",
+  "timestamp": 1778226220.121693,
+  "saved_at": 1778226724.626421
+}

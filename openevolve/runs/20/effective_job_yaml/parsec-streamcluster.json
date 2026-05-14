@@ -1,0 +1,46 @@
+[
+  {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+      "labels": {
+        "name": "parsec-streamcluster"
+      },
+      "name": "parsec-streamcluster"
+    },
+    "spec": {
+      "template": {
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "-c",
+                "taskset -c 4-7 ./run -a run -S parsec -p streamcluster -i native -n 2"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "image": "anakli/cca:parsec_streamcluster",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "parsec-streamcluster",
+              "resources": {
+                "limits": {
+                  "cpu": "4",
+                  "memory": "8Gi"
+                },
+                "requests": {
+                  "cpu": "2",
+                  "memory": "4Gi"
+                }
+              }
+            }
+          ],
+          "nodeSelector": {
+            "cca-project-nodetype": "node-a-8core"
+          },
+          "restartPolicy": "Never"
+        }
+      }
+    }
+  }
+]

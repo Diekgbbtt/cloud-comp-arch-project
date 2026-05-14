@@ -1,0 +1,27 @@
+{
+  "id": "f9ae502c-7727-490e-a1f1-1be942c3370b",
+  "generation": 1,
+  "iteration": 3,
+  "current_iteration": 4,
+  "metrics": {
+    "combined_score": 0.5115131578947368,
+    "run_id": 7.0,
+    "mcperf_warmup_returncode": 0.0,
+    "scheduler_stdout": "",
+    "scheduler_stderr": "2026-05-08 16:11:46,218 INFO Loaded kubeconfig context=current\n2026-05-08 16:11:46,536 INFO SCHEDULED job=parsec-streamcluster deps=[]\n2026-05-08 16:11:46,599 INFO SCHEDULED job=parsec-freqmine deps=[]\n2026-05-08 16:14:02,213 INFO FINISHED job=parsec-freqmine status=Succeeded\n2026-05-08 16:14:02,413 INFO SCHEDULED job=parsec-barnes deps=['parsec-freqmine']\n2026-05-08 16:14:11,120 INFO FINISHED job=parsec-streamcluster status=Succeeded\n2026-05-08 16:14:11,181 INFO SCHEDULED job=parsec-canneal deps=['parsec-streamcluster']\n2026-05-08 16:14:11,238 INFO SCHEDULED job=parsec-radix deps=['parsec-streamcluster']\n2026-05-08 16:14:48,295 INFO FINISHED job=parsec-barnes status=Succeeded\n2026-05-08 16:14:48,486 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-freqmine']\n2026-05-08 16:14:53,310 INFO FINISHED job=parsec-radix status=Succeeded\n2026-05-08 16:14:53,370 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-radix', 'parsec-streamcluster']\n2026-05-08 16:15:42,366 INFO FINISHED job=parsec-vips status=Succeeded\n2026-05-08 16:15:53,512 INFO FINISHED job=parsec-blackscholes status=Succeeded\n2026-05-08 16:16:47,527 INFO FINISHED job=parsec-canneal status=Succeeded\n2026-05-08 16:16:47,529 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']\n2026-05-08 16:16:47,530 INFO Scheduler finished in 301.31 seconds\n",
+    "scheduler_returncode": 0.0,
+    "makespan_sec": 297.0,
+    "p95_worst_ms": 0.9718,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.5115131578947368,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 346.39552783966064,
+    "is_baseline_run": 0.0,
+    "target_makespan_sec": 247.67,
+    "baseline_makespan_sec": 311.0,
+    "best_measured_makespan_sec": 297.0
+  },
+  "language": "python",
+  "timestamp": 1778249846.537875,
+  "saved_at": 1778250266.87868
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+      "labels": {
+        "name": "parsec-radix"
+      },
+      "name": "parsec-radix"
+    },
+    "spec": {
+      "template": {
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "-c",
+                "taskset -c 4 ./run -a run -S splash2x -p radix -i native -n 1"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "image": "anakli/cca:splash2x_radix",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "parsec-radix",
+              "resources": {
+                "limits": {
+                  "cpu": "1",
+                  "memory": "2Gi"
+                },
+                "requests": {
+                  "cpu": "1",
+                  "memory": "1Gi"
+                }
+              }
+            }
+          ],
+          "nodeSelector": {
+            "cca-project-nodetype": "node-a-8core"
+          },
+          "restartPolicy": "Never"
+        }
+      }
+    }
+  }
+]

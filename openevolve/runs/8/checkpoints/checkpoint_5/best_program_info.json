@@ -1,0 +1,29 @@
+{
+  "id": "8e5909df-46f4-467a-9921-a9379e790e5e",
+  "generation": 1,
+  "iteration": 2,
+  "current_iteration": 5,
+  "metrics": {
+    "combined_score": 0.623393461761565,
+    "scheduler_cmd": "/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpxri4e2hr.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/8",
+    "scheduler_stdout": "",
+    "scheduler_stderr": "2026-05-08 19:42:37,166 INFO Loaded kubeconfig context=current\n2026-05-08 19:42:37,481 INFO SCHEDULED job=parsec-streamcluster deps=[]\n2026-05-08 19:42:37,538 INFO SCHEDULED job=parsec-freqmine deps=[]\n2026-05-08 19:44:52,253 INFO FINISHED job=parsec-freqmine status=Succeeded\n2026-05-08 19:44:52,414 INFO SCHEDULED job=parsec-barnes deps=['parsec-freqmine']\n2026-05-08 19:44:56,229 INFO FINISHED job=parsec-streamcluster status=Succeeded\n2026-05-08 19:44:56,288 INFO SCHEDULED job=parsec-canneal deps=['parsec-streamcluster']\n2026-05-08 19:44:56,346 INFO SCHEDULED job=parsec-radix deps=['parsec-streamcluster']\n2026-05-08 19:45:38,338 INFO FINISHED job=parsec-radix status=Succeeded\n2026-05-08 19:45:38,400 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-radix', 'parsec-streamcluster']\n2026-05-08 19:45:38,554 INFO FINISHED job=parsec-barnes status=Succeeded\n2026-05-08 19:45:38,612 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-freqmine']\n2026-05-08 19:46:29,527 INFO FINISHED job=parsec-vips status=Succeeded\n2026-05-08 19:46:37,481 INFO FINISHED job=parsec-blackscholes status=Succeeded\n2026-05-08 19:47:24,622 INFO FINISHED job=parsec-canneal status=Succeeded\n2026-05-08 19:47:24,625 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']\n2026-05-08 19:47:24,626 INFO Scheduler finished in 287.46 seconds\n",
+    "makespan_sec": 283.0,
+    "node_allocation_scalar": 92.0,
+    "dep_edge_count": 7.0,
+    "parallelism_delta_node_a": -1.0,
+    "parallelism_delta_node_b": 0.0,
+    "p95_worst_ms": 0.4323,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.623393461761565,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 331.88048005104065,
+    "is_baseline_run": 0.0,
+    "target_makespan_sec": 247.67,
+    "baseline_makespan_sec": 321.0,
+    "best_measured_makespan_sec": 283.0
+  },
+  "language": "python",
+  "timestamp": 1778262483.5901551,
+  "saved_at": 1778263770.000635
+}

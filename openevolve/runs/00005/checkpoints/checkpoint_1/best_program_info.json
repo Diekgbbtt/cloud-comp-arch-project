@@ -1,0 +1,25 @@
+{
+  "id": "04bc88b3-dea7-4393-a031-1aaf95e503ca",
+  "generation": 1,
+  "iteration": 1,
+  "current_iteration": 1,
+  "metrics": {
+    "combined_score": 0.4580797898903213,
+    "run_id": 53.0,
+    "baseline_makespan_sec": 247.67,
+    "mcperf_warmup_returncode": 0.0,
+    "scheduler_cmd": "/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmp2gyd0g42.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/run_000053",
+    "scheduler_stdout": "",
+    "scheduler_stderr": "2026-05-08 13:05:30,330 INFO Loaded kubeconfig context=current\n2026-05-08 13:05:30,648 INFO SCHEDULED job=parsec-streamcluster deps=[]\n2026-05-08 13:05:30,712 INFO SCHEDULED job=parsec-freqmine deps=[]\n2026-05-08 13:07:44,413 INFO FINISHED job=parsec-freqmine status=Succeeded\n2026-05-08 13:07:44,591 INFO SCHEDULED job=parsec-barnes deps=['parsec-freqmine']\n2026-05-08 13:07:55,579 INFO FINISHED job=parsec-streamcluster status=Succeeded\n2026-05-08 13:07:55,635 INFO SCHEDULED job=parsec-canneal deps=['parsec-streamcluster']\n2026-05-08 13:07:55,689 INFO SCHEDULED job=parsec-radix deps=['parsec-streamcluster']\n2026-05-08 13:08:30,535 INFO FINISHED job=parsec-barnes status=Succeeded\n2026-05-08 13:08:30,594 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-freqmine']\n2026-05-08 13:08:37,728 INFO FINISHED job=parsec-radix status=Succeeded\n2026-05-08 13:08:37,781 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-radix', 'parsec-streamcluster']\n2026-05-08 13:09:20,741 INFO FINISHED job=parsec-vips status=Succeeded\n2026-05-08 13:09:35,844 INFO FINISHED job=parsec-blackscholes status=Succeeded\n2026-05-08 13:10:26,975 INFO FINISHED job=parsec-canneal status=Succeeded\n2026-05-08 13:10:26,978 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']\n2026-05-08 13:10:26,979 INFO Scheduler finished in 296.65 seconds\n",
+    "scheduler_returncode": 0.0,
+    "makespan_sec": 293.0,
+    "p95_worst_ms": 0.5252,
+    "slo_violation_fraction": 0.0,
+    "perf_term": 0.4580797898903213,
+    "slo_term": 1.0,
+    "evaluation_wall_sec": 341.0719790458679
+  },
+  "language": "python",
+  "timestamp": 1778238666.221312,
+  "saved_at": 1778238666.243406
+}

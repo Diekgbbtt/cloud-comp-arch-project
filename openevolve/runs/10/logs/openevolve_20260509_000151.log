@@ -1,0 +1,53 @@
+2026-05-09 00:01:51,461 - openevolve.controller - INFO - Logging to runs/10/logs/openevolve_20260509_000151.log
+2026-05-09 00:01:51,487 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-09 00:01:51,521 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-Next-80B-A3B-Instruct-yiswang
+2026-05-09 00:01:51,521 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: Qwen/Qwen3-Next-80B-A3B-Instruct-yiswang (weight: 1.00)
+2026-05-09 00:01:51,528 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-09 00:01:51,529 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-09 00:01:51,529 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-09 00:01:51,532 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-09 00:01:51,532 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-09 00:01:51,532 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-09 00:01:51,532 - openevolve.controller - INFO - Adding initial program to database
+2026-05-09 00:07:45,803 - openevolve.evaluator - INFO - Evaluated program 0fe2bfd6-6cd9-4a3f-bdca-1201eb2ef397 in 354.27s: combined_score=0.0179, scheduler_cmd=/Users/diekgbbtt/cloud-comp-arch-project/automation/.venv/bin/python3.13 /var/folders/gs/p9fl4f1s1yqfl8801x50nhjc0000gn/T/tmpm4itqjde.py --namespace default --jobs-dir /Users/diekgbbtt/cloud-comp-arch-project/automation/results/part3/diego_tentative2 --output-dir /Users/diekgbbtt/cloud-comp-arch-project/openevolve/runs/10, scheduler_stdout=, scheduler_stderr=2026-05-09 00:02:05,185 INFO Loaded kubeconfig context=current
+2026-05-09 00:02:05,506 INFO SCHEDULED job=parsec-streamcluster deps=[]
+2026-05-09 00:02:05,569 INFO SCHEDULED job=parsec-canneal deps=[]
+2026-05-09 00:03:46,303 INFO FINISHED job=parsec-canneal status=Succeeded
+2026-05-09 00:03:46,479 INFO SCHEDULED job=parsec-barnes deps=['parsec-canneal']
+2026-05-09 00:04:16,947 INFO FINISHED job=parsec-streamcluster status=Succeeded
+2026-05-09 00:04:17,019 INFO SCHEDULED job=parsec-freqmine deps=['parsec-streamcluster']
+2026-05-09 00:04:33,436 INFO FINISHED job=parsec-barnes status=Succeeded
+2026-05-09 00:04:33,500 INFO SCHEDULED job=parsec-vips deps=['parsec-barnes', 'parsec-canneal']
+2026-05-09 00:05:24,560 INFO FINISHED job=parsec-vips status=Succeeded
+2026-05-09 00:05:45,227 INFO FINISHED job=parsec-freqmine status=Succeeded
+2026-05-09 00:05:45,296 INFO SCHEDULED job=parsec-blackscholes deps=['parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 00:06:18,326 INFO FINISHED job=parsec-blackscholes status=Succeeded
+2026-05-09 00:06:18,399 INFO SCHEDULED job=parsec-radix deps=['parsec-blackscholes', 'parsec-freqmine', 'parsec-streamcluster']
+2026-05-09 00:07:06,437 INFO FINISHED job=parsec-radix status=Succeeded
+2026-05-09 00:07:06,438 INFO All jobs finished successfully: ['parsec-barnes', 'parsec-blackscholes', 'parsec-canneal', 'parsec-freqmine', 'parsec-radix', 'parsec-streamcluster', 'parsec-vips']
+2026-05-09 00:07:06,440 INFO Scheduler finished in 301.25 seconds
+, makespan_sec=297.0000, node_allocation_scalar=92.0000, dep_edge_count=9.0000, parallelism_delta_node_a=-15.0000, parallelism_delta_node_b=-12.0000, p95_worst_ms=2.1025, slo_violation_fraction=0.2857, perf_term=0.5000, slo_term=0.0357, evaluation_wall_sec=346.2076, is_baseline_run=1.0000, target_makespan_sec=247.6700, baseline_makespan_sec=297.0000, best_measured_makespan_sec=297.0000
+2026-05-09 00:07:45,805 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'node_allocation_scalar': 5, 'dep_edge_count': 5}
+2026-05-09 00:07:45,824 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-09 00:07:45,825 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-09 00:07:45,826 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-09 00:07:45,826 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-05-09 00:07:45,826 - openevolve.database - INFO - Island Status:
+2026-05-09 00:07:45,826 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0179, avg=0.0179, diversity=0.00, gen=0 (best: 0fe2bfd6-6cd9-4a3f-bdca-1201eb2ef397)
+2026-05-09 00:07:45,826 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 00:07:45,826 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 00:07:45,826 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-09 00:07:45,826 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-09 00:07:45,833 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-09 00:24:03,112 - openevolve.process_parallel - ERROR - Error processing result from iteration 1: Feature dimension 'node_allocation_scalar' specified in config but not found in program metrics. Available metrics: ['combined_score', 'scheduler_cmd', 'evaluation_wall_sec']. Built-in features: 'complexity', 'diversity', 'score'. Either remove 'node_allocation_scalar' from feature_dimensions or ensure your evaluator returns it.
+2026-05-09 00:24:33,864 - openevolve.process_parallel - WARNING - Iteration 2 error: LLM generation failed: Error code: 503 - {'error': 'No provider found for the requested service.'}
+2026-05-09 00:25:03,368 - openevolve.process_parallel - WARNING - Iteration 3 error: LLM generation failed: Error code: 503 - {'error': 'No provider found for the requested service.'}
+2026-05-09 00:25:33,238 - openevolve.process_parallel - WARNING - Iteration 4 error: LLM generation failed: Error code: 503 - {'error': 'No provider found for the requested service.'}
+2026-05-09 00:25:54,379 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-09 00:25:54,381 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-09 00:25:54,389 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-09 00:25:54,389 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-09 00:25:54,390 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-09 00:25:54,579 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 00:25:54,779 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-09 00:25:55,447 - openevolve.controller - INFO - Force exit requested - terminating immediately

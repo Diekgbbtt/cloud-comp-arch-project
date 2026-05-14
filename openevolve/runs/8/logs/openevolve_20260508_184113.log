@@ -1,0 +1,14 @@
+2026-05-08 18:41:13,927 - openevolve.controller - INFO - Logging to runs/8/logs/openevolve_20260508_184113.log
+2026-05-08 18:41:13,964 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 18:41:13,997 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: swiss-ai/Apertus-70B-Instruct-2509
+2026-05-08 18:41:13,997 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: swiss-ai/Apertus-70B-Instruct-2509 (weight: 1.00)
+2026-05-08 18:41:14,005 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 18:41:14,005 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 18:41:14,005 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 18:41:14,014 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 18:41:14,014 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 18:41:14,014 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 18:41:14,014 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 18:46:24,891 - openevolve.evaluator - WARNING - Evaluation attempt 1/4 failed for program 5cc63d16-4e88-4c94-94a8-70cd9fb6ece3: 'NoneType' object has no attribute 'items'
+2026-05-08 18:51:42,444 - openevolve.evaluator - WARNING - Evaluation attempt 2/4 failed for program 5cc63d16-4e88-4c94-94a8-70cd9fb6ece3: 'NoneType' object has no attribute 'items'
+2026-05-08 18:56:58,489 - openevolve.evaluator - WARNING - Evaluation attempt 3/4 failed for program 5cc63d16-4e88-4c94-94a8-70cd9fb6ece3: 'NoneType' object has no attribute 'items'

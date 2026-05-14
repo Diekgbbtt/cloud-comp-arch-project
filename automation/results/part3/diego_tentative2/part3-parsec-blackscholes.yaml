@@ -12,13 +12,13 @@ spec:
         name: parsec-blackscholes
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "taskset -c 2-3 ./run -a run -S parsec -p blackscholes -i native -n 2"]
+        args: ["-c", "taskset -c 1-2 ./run -a run -S parsec -p blackscholes -i native -n 2"]
         resources:
           requests:
-            cpu: "2"
+            cpu: "1"
             # memory: "1Gi"
           limits:
-            cpu: "3"
+            cpu: "2"
             # memory: "30Gi"
       restartPolicy: Never
       nodeSelector:

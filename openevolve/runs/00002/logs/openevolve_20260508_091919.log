@@ -1,0 +1,33 @@
+2026-05-08 09:19:19,550 - openevolve.controller - INFO - Logging to runs/00002/logs/openevolve_20260508_091919.log
+2026-05-08 09:19:19,581 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-05-08 09:19:19,608 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3.5-397B-A17B-Myex
+2026-05-08 09:19:19,608 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: Qwen/Qwen3.5-397B-A17B-Myex (weight: 1.00)
+2026-05-08 09:19:19,615 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-05-08 09:19:19,615 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-05-08 09:19:19,615 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-05-08 09:19:19,617 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-05-08 09:19:19,617 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-05-08 09:19:19,617 - openevolve.controller - INFO - Initialized OpenEvolve with /Users/diekgbbtt/cloud-comp-arch-project/automation/part3_automation.py
+2026-05-08 09:19:19,617 - openevolve.controller - INFO - Adding initial program to database
+2026-05-08 09:24:21,826 - openevolve.evaluator - INFO - Evaluated program fc159b5e-9074-4d21-a14e-21b9f1ccd8da in 302.21s: combined_score=0.0199, run_id=17.0000, baseline_makespan_sec=247.6700, mcperf_warmup_returncode=0.0000, scheduler_returncode=0.0000, makespan_sec=246.0000, p95_worst_ms=1.5872, slo_violation_fraction=0.2083, perf_term=0.5017, slo_term=0.0396, evaluation_wall_sec=293.8866
+2026-05-08 09:24:21,827 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-05-08 09:24:21,841 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-05-08 09:24:21,842 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-05-08 09:24:21,842 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-05-08 09:24:21,842 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-05-08 09:24:21,842 - openevolve.database - INFO - Island Status:
+2026-05-08 09:24:21,842 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0199, avg=0.0199, diversity=0.00, gen=0 (best: fc159b5e-9074-4d21-a14e-21b9f1ccd8da)
+2026-05-08 09:24:21,842 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 09:24:21,842 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 09:24:21,842 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-05-08 09:24:21,842 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-05-08 09:24:21,848 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-05-08 09:24:54,935 - openevolve.process_parallel - WARNING - Iteration 1 error: LLM generation failed: Error code: 503 - {'error': 'No provider found for the requested service.'}
+2026-05-08 09:25:23,117 - openevolve.controller - INFO - Received signal 2, initiating graceful shutdown...
+2026-05-08 09:25:23,119 - openevolve.process_parallel - INFO - Graceful shutdown requested...
+2026-05-08 09:25:23,125 - openevolve.process_parallel - INFO - Shutdown requested, canceling remaining evaluations...
+2026-05-08 09:25:23,126 - openevolve.process_parallel - INFO - ✅ Evolution completed - Shutdown requested
+2026-05-08 09:25:23,126 - openevolve.controller - INFO - Evolution stopped due to shutdown request
+2026-05-08 09:25:23,434 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 09:25:23,590 - openevolve.controller - INFO - Force exit requested - terminating immediately
+2026-05-08 09:25:24,652 - openevolve.controller - INFO - Force exit requested - terminating immediately

@@ -12,13 +12,13 @@ spec:
         name: parsec-vips
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh"]
-        args: ["-c", "./run -a run -S parsec -p vips -i native -n 4"]
+        args: ["-c", "taskset -c 2-3 ./run -a run -S parsec -p vips -i native -n 2"]
         resources:
           requests:
-            cpu: "3"
+            cpu: "1"
             # memory: "1Gi"
           limits:
-            cpu: "4"
+            cpu: "2"
             # memory: "10Gi"
       restartPolicy: Never
       nodeSelector:

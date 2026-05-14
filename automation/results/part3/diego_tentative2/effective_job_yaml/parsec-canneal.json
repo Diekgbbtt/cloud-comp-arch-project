@@ -1,0 +1,46 @@
+[
+  {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+      "labels": {
+        "name": "parsec-canneal"
+      },
+      "name": "parsec-canneal"
+    },
+    "spec": {
+      "template": {
+        "spec": {
+          "containers": [
+            {
+              "args": [
+                "-c",
+                "taskset -c 4-7 ./run -a run -S parsec -p canneal -i native -n 4"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "image": "anakli/cca:parsec_canneal",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "parsec-canneal",
+              "resources": {
+                "limits": {
+                  "cpu": "6",
+                  "memory": "6Gi"
+                },
+                "requests": {
+                  "cpu": "4",
+                  "memory": "6Gi"
+                }
+              }
+            }
+          ],
+          "nodeSelector": {
+            "cca-project-nodetype": "node-a-8core"
+          },
+          "restartPolicy": "Never"
+        }
+      }
+    }
+  }
+]

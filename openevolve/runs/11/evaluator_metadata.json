@@ -1,0 +1,25 @@
+{
+  "baseline_makespan_sec": 335.0,
+  "best_measured_makespan_sec": 321.0,
+  "target_makespan_sec": 247.67,
+  "iterations": [
+    {
+      "makespan_sec": 335.0,
+      "combined_score": 0.020833333333333336,
+      "perf_term": 0.5,
+      "slo_term": 0.04166666666666667,
+      "p95_worst_ms": 4.2926,
+      "slo_violation_fraction": 0.16666666666666666,
+      "evaluation_wall_sec": 531.7369527816772
+    },
+    {
+      "makespan_sec": 321.0,
+      "combined_score": 0.023546184103130825,
+      "perf_term": 0.5425859815069276,
+      "slo_term": 0.043396226415094344,
+      "p95_worst_ms": 4.2311000000000005,
+      "slo_violation_fraction": 0.1320754716981132,
+      "evaluation_wall_sec": 649.884557723999
+    }
+  ]
+}

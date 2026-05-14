@@ -1,0 +1,5 @@
+{'apiVersion': 'v1', 'kind': 'List', 'items': [{...}, {...}, {...}, {...}, {...}, {...}, {...}]}
+
+warm: {'returncode': 0, 'stdout': '', 'stderr': "Warning: Permanently added '34.76.200.0' (ED25519) to the list of known hosts.\n"}
+
+{'combined_score': 0.0, 'run_id': 17.0, 'baseline_makespan_sec': 440.6, 'mcperf_warmup_returncode': 0.0, 'scheduler_returncode': 0.0, 'makespan_sec': 281.0, 'mcperf_load_returncode': 255.0, 'p95_worst_ms': inf, 'slo_violation_fraction': 1.0, 'perf_term': 0.6105875831485588, 'slo_term': 0.0}
