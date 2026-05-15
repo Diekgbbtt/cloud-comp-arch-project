@@ -1,1 +1,0 @@
-This directory contains most experiments relevant artifacts: configurations, logs, measurements, pods statuses -- without following a chronological order or a defined structure
